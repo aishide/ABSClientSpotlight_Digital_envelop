@@ -1,0 +1,3354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABS Client Spotlight — Exclusive Digital Invitation</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Canvas Confetti for Celebration Burst -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#050629',
+            electricIndigo: '#4F39FF',
+            deepIndigo: '#261C71',
+            softViolet: '#815BF1',
+            lavender: '#F2EFFC',
+            lavenderPaper: '#F6F4FE',
+            champagne: '#C5A059',
+            champagneLight: '#E6D09C',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --midnight: #050629;
+      --electric-indigo: #4F39FF;
+      --deep-indigo: #261C71;
+      --soft-violet: #815BF1;
+      --lavender: #F2EFFC;
+      --lavender-paper: #F6F4FE;
+      --champagne: #C5A059;
+      --champagne-light: #E6D09C;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 24%, #1A1354 0%, #0B0936 52%, #050629 100%);
+      color: var(--lavender);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      transition: background 0.65s ease, color 0.5s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body.light-mode {
+      background: radial-gradient(circle at 50% 18%, #FAF9FF 0%, #F2EFFC 52%, #E5DDF9 100%);
+      color: var(--midnight);
+    }
+
+    /* Strict State Lock: Prevent scroll leakage while envelope is closed */
+    body.state-closed {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Subtle Architectural Grid Pattern */
+    .swiss-grid-bg {
+      background-image: 
+        linear-gradient(to right, rgba(129, 91, 241, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(129, 91, 241, 0.08) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    body.light-mode.swiss-grid-bg {
+      background-image: 
+        linear-gradient(to right, rgba(38, 28, 113, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(38, 28, 113, 0.04) 1px, transparent 1px);
+    }
+
+    /* Volumetric Theatre & Studio Light Beams */
+    .spotlight-left {
+      position: fixed;
+      top: -20%;
+      left: -10%;
+      width: 65vw;
+      height: 135vh;
+      background: conic-gradient(from 135deg at 20% 0%, transparent 0deg, rgba(129, 91, 241, 0.24) 22deg, rgba(79, 57, 255, 0.14) 36deg, transparent 54deg);
+      transform-origin: 20% 0%;
+      animation: sweepLeft 15s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(38px);
+      will-change: transform;
+    }
+
+    body.light-mode .spotlight-left {
+      background: conic-gradient(from 135deg at 20% 0%, transparent 0deg, rgba(129, 91, 241, 0.12) 22deg, rgba(255, 255, 255, 0.55) 36deg, transparent 54deg);
+    }
+
+    .spotlight-right {
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 65vw;
+      height: 135vh;
+      background: conic-gradient(from 195deg at 80% 0%, transparent 0deg, rgba(79, 57, 255, 0.2) 20deg, rgba(230, 208, 156, 0.12) 35deg, transparent 52deg);
+      transform-origin: 80% 0%;
+      animation: sweepRight 17s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(42px);
+      will-change: transform;
+    }
+
+    body.light-mode .spotlight-right {
+      background: conic-gradient(from 195deg at 80% 0%, transparent 0deg, rgba(79, 57, 255, 0.09) 20deg, rgba(255, 255, 255, 0.45) 35deg, transparent 52deg);
+    }
+
+    @keyframes sweepLeft {
+      0% { transform: translate3d(0,0,0) rotate(-10deg); opacity: 0.72; }
+      100% { transform: translate3d(0,0,0) rotate(12deg); opacity: 1; }
+    }
+
+    @keyframes sweepRight {
+      0% { transform: translate3d(0,0,0) rotate(11deg); opacity: 0.72; }
+      100% { transform: translate3d(0,0,0) rotate(-10deg); opacity: 1; }
+    }
+
+    /* ===================================================================== */
+    /* 1. ADAPTIVE COTTON-RAG DECKLE-EDGE ENVELOPE & FLAT-LAY TABLETOP       */
+    /* ===================================================================== */
+    .flatlay-backdrop-card {
+      background: linear-gradient(145deg, #1B1459 0%, #0E103D 58%, #050629 100%);
+      border: 1px solid rgba(129, 91, 241, 0.24);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.72), inset 0 1px 0 rgba(129, 91, 241, 0.14);
+      filter: url(#deckleEdgeFilter);
+      transition: background 0.55s ease, border-color 0.55s ease, box-shadow 0.55s ease;
+    }
+
+    body.light-mode .flatlay-backdrop-card {
+      background: linear-gradient(145deg, #FFFFFF 0%, #EDE7FC 58%, #DDD4F8 100%);
+      border: 1px solid rgba(129, 91, 241, 0.18);
+      box-shadow: 0 22px 50px rgba(38, 28, 113, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    /* Dramatic Halo Behind Envelope */
+    .envelope-stage-halo {
+      position: absolute;
+      inset: -14%;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(79, 57, 255, 0.34) 0%, rgba(129, 91, 241, 0.16) 45%, transparent 72%);
+      filter: blur(28px);
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.light-mode .envelope-stage-halo {
+      opacity: 0.35;
+    }
+
+    .envelope-stage {
+      perspective: 1800px;
+    }
+
+    .envelope-float {
+      animation: floatEnvelope 6.2s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .envelope-opened-parent .envelope-float {
+      animation: none;
+    }
+
+    @keyframes floatEnvelope {
+      0%, 100% { transform: translate3d(0, 0px, 0) rotateZ(0deg); }
+      50% { transform: translate3d(0, -6px, 0) rotateZ(0.2deg); }
+    }
+
+    /* Portrait Vertical Envelope Container */
+    .portrait-envelope-wrapper {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.95s ease;
+      will-change: transform, opacity;
+    }
+
+    /* Nocturnal Deep Indigo (#261C71) Cotton-Rag Paper in Dark Mode */
+    .cotton-paper-base {
+      background:
+        radial-gradient(circle at 30% 22%, #2F238A 0%, #261C71 55%, #16104D 100%);
+      box-shadow:
+        0 38px 90px -12px rgba(0, 0, 0, 0.85),
+        0 0 55px rgba(79, 57, 255, 0.28),
+        inset 0 1px 2px rgba(129, 91, 241, 0.45),
+        inset 0 0 0 1px rgba(129, 91, 241, 0.35);
+      filter: url(#deckleEdgeFilter);
+      transition: background 0.55s ease, box-shadow 0.55s ease;
+    }
+
+    /* Light Cotton-Rag Lavender (#F2EFFC) Paper in Light Mode */
+    body.light-mode .cotton-paper-base {
+      background:
+        radial-gradient(circle at 30% 22%, #FFFFFF 0%, #F4F0FD 58%, #E6DFFA 100%);
+      box-shadow:
+        0 34px 80px -16px rgba(38, 28, 113, 0.24),
+        0 10px 26px -8px rgba(5, 6, 41, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95),
+        inset 0 0 0 1px rgba(129, 91, 241, 0.22);
+    }
+
+    /* Visible Woven Cotton Fibers & Paper Tooth Overlay */
+    .cotton-fibers-overlay {
+      background-image:
+        repeating-linear-gradient(14deg, rgba(242, 239, 252, 0.03) 0px, rgba(242, 239, 252, 0.03) 1px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(-76deg, rgba(129, 91, 241, 0.04) 0px, rgba(129, 91, 241, 0.04) 1px, transparent 1px, transparent 3px),
+        radial-gradient(rgba(242, 239, 252, 0.05) 0.75px, transparent 0);
+      background-size: 4px 4px, 3px 3px, 11px 11px;
+    }
+
+    body.light-mode .cotton-fibers-overlay {
+      background-image:
+        repeating-linear-gradient(14deg, rgba(38, 28, 113, 0.025) 0px, rgba(38, 28, 113, 0.025) 1px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(-76deg, rgba(129, 91, 241, 0.028) 0px, rgba(129, 91, 241, 0.028) 1px, transparent 1px, transparent 3px),
+        radial-gradient(rgba(38, 28, 113, 0.045) 0.75px, transparent 0);
+    }
+
+    /* Peeking Vinyl Record Inside Envelope Pocket */
+    .envelope-peek-vinyl {
+      position: absolute;
+      right: 10%;
+      top: 18%;
+      width: 145px;
+      height: 145px;
+      border-radius: 9999px;
+      background:
+        repeating-radial-gradient(circle at center, #090A24 0px, #090A24 3px, #161847 4px, #090A24 5px);
+      border: 2px solid rgba(197, 160, 89, 0.55);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+      z-index: 12;
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      transition: transform 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.55s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .envelope-opened .envelope-peek-vinyl {
+      transform: translate3d(68px, -38px, 12px) rotate(48deg);
+    }
+
+    /* Fine-Art Inner Card Nestled Inside Pocket */
+    .portrait-inner-card {
+      position: absolute;
+      left: 10%;
+      right: 6%;
+      top: 4%;
+      bottom: 6%;
+      background: linear-gradient(165deg, #16134F 0%, #0E103D 68%, #050629 100%);
+      color: #F2EFFC;
+      border-radius: 6px;
+      z-index: 14;
+      box-shadow:
+        -6px 12px 28px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(129, 91, 241, 0.35);
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1) 0.55s, box-shadow 1.1s ease 0.55s, background 0.5s ease, color 0.5s ease;
+      will-change: transform;
+      overflow: hidden;
+    }
+
+    body.light-mode .portrait-inner-card {
+      background: linear-gradient(165deg, #FFFFFF 0%, #FAF8FF 70%, #F0ECFC 100%);
+      color: #050629;
+      box-shadow:
+        -6px 12px 28px rgba(38, 28, 113, 0.16),
+        0 0 0 1px rgba(129, 91, 241, 0.22);
+    }
+
+    /* When Unsealed: Fine-Art Card Glides Smoothly Outward */
+    .envelope-opened .portrait-inner-card {
+      transform: translate3d(26px, -62px, 24px) rotate(1.5deg) scale(1.04);
+      z-index: 26;
+      box-shadow:
+        -12px 26px 55px rgba(0, 0, 0, 0.65),
+        0 0 36px rgba(79, 57, 255, 0.38),
+        0 0 0 1px rgba(129, 91, 241, 0.55);
+    }
+
+    body.light-mode .envelope-opened .portrait-inner-card {
+      box-shadow:
+        -12px 26px 55px rgba(38, 28, 113, 0.26),
+        0 0 36px rgba(129, 91, 241, 0.25),
+        0 0 0 1px rgba(79, 57, 255, 0.35);
+    }
+
+    /* Right & Bottom Folded Cotton Pocket Flaps */
+    .portrait-pocket-right {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(245deg, #2B207E 0%, #201763 62%, #150F47 100%);
+      clip-path: polygon(100% 0, 44% 50%, 100% 100%);
+      z-index: 18;
+      filter: drop-shadow(-4px 0 12px rgba(0, 0, 0, 0.5));
+      transition: background 0.55s ease;
+    }
+
+    body.light-mode .portrait-pocket-right {
+      background: linear-gradient(245deg, #F8F6FF 0%, #ECE6FC 62%, #E0D7F8 100%);
+      filter: drop-shadow(-4px 0 10px rgba(38, 28, 113, 0.14));
+    }
+
+    .portrait-pocket-bottom {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, #17114D 0%, #231A6B 78%, #2C2180 100%);
+      clip-path: polygon(0 100%, 46% 48%, 100% 100%);
+      z-index: 20;
+      filter: drop-shadow(0 -6px 16px rgba(0, 0, 0, 0.55));
+      transition: background 0.55s ease;
+    }
+
+    body.light-mode .portrait-pocket-bottom {
+      background: linear-gradient(0deg, #E3DBF9 0%, #F1ECFD 78%, #FAF8FF 100%);
+      filter: drop-shadow(0 -6px 14px rgba(38, 28, 113, 0.15));
+    }
+
+    /* Left-Hinged Triangular Cotton Flap (Swings Open Left-to-Right After Seal Breaks) */
+    .portrait-left-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 66%;
+      height: 100%;
+      background: linear-gradient(115deg, #30248C 0%, #261C71 58%, #1A1354 100%);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+      transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1) 0.38s, z-index 0.05s linear 0.8s, background 0.55s ease;
+      z-index: 30;
+      filter: drop-shadow(10px 6px 20px rgba(0, 0, 0, 0.55));
+      will-change: transform;
+    }
+
+    body.light-mode .portrait-left-flap {
+      background: linear-gradient(115deg, #FFFFFF 0%, #F3EFFD 58%, #E7E0FA 100%);
+      filter: drop-shadow(10px 6px 18px rgba(38, 28, 113, 0.22));
+    }
+
+    .envelope-opened .portrait-left-flap {
+      transform: rotateY(-175deg);
+      z-index: 6;
+    }
+
+    /* Blind-Debossed Botanical Wreath Pressed into Flap */
+    .debossed-botanical {
+      filter:
+        drop-shadow(-1px -1px 0px rgba(129, 91, 241, 0.35))
+        drop-shadow(1.5px 1.5px 1.5px rgba(5, 6, 41, 0.85));
+      transition: filter 0.5s ease;
+    }
+
+    body.light-mode .debossed-botanical {
+      filter:
+        drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.95))
+        drop-shadow(1.2px 1.2px 1.2px rgba(38, 28, 113, 0.28));
+    }
+
+    .debossed-botanical g {
+      stroke: #4938B8;
+      transition: stroke 0.5s ease;
+    }
+
+    body.light-mode .debossed-botanical g {
+      stroke: #D9CFF7;
+    }
+
+    .debossed-botanical ellipse {
+      fill: #32258F;
+      transition: fill 0.5s ease;
+    }
+
+    body.light-mode .debossed-botanical ellipse {
+      fill: #E4DCFA;
+    }
+
+    /* ===================================================================== */
+    /* 2. TWO-PIECE CRACKING & SPLITTING ORGANIC WAX SEAL                    */
+    /* ===================================================================== */
+    .organic-wax-seal-container {
+      position: absolute;
+      left: 63%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 40px);
+      z-index: 45;
+      cursor: pointer;
+    }
+
+    .wax-half-left,
+    .wax-half-right {
+      transform-origin: center;
+      transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease 0.2s;
+      filter: drop-shadow(0 12px 18px rgba(5, 6, 41, 0.45));
+    }
+
+    .organic-wax-seal-container:not(.seal-cracked):hover .wax-half-left {
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .organic-wax-seal-container:not(.seal-cracked):hover .wax-half-right {
+      transform: scale(1.06) rotate(2deg);
+    }
+
+    .seal-cracked .wax-half-left {
+      transform: translate3d(-24px, -16px, 0) rotate(-22deg) scale(0.92);
+      opacity: 0;
+    }
+
+    .seal-cracked .wax-half-right {
+      transform: translate3d(26px, 18px, 0) rotate(24deg) scale(0.92);
+      opacity: 0;
+    }
+
+    .seal-cracked {
+      pointer-events: none;
+    }
+
+    .wax-fracture-glow {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .seal-cracked .wax-fracture-glow {
+      animation: crackFlash 0.5s ease-out forwards;
+    }
+
+    @keyframes crackFlash {
+      0% { opacity: 1; stroke-width: 3; }
+      100% { opacity: 0; stroke-width: 0.5; }
+    }
+
+    .seal-pulse {
+      animation: sealRingPulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
+
+    .seal-cracked .seal-pulse,
+    .seal-cracked .seal-hint-badge {
+      opacity: 0;
+      animation: none;
+      transition: opacity 0.2s ease;
+    }
+
+    @keyframes sealRingPulse {
+      0% { transform: scale(0.94); opacity: 0.75; }
+      75% { transform: scale(1.38); opacity: 0; }
+      100% { transform: scale(1.38); opacity: 0; }
+    }
+
+    /* ===================================================================== */
+    /* 3. COMPACT CUTE CHIBI ABS CONCIERGE GUIDE                             */
+    /* ===================================================================== */
+    #guideCharacterWrapper {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 48;
+      touch-action: none;
+      user-select: none;
+      cursor: grab;
+      transition: filter 0.25s ease;
+    }
+
+    #guideCharacterWrapper:active,
+    #guideCharacterWrapper.is-dragging {
+      cursor: grabbing;
+      filter: drop-shadow(0 16px 26px rgba(79, 57, 255, 0.32));
+    }
+
+    .concierge-bob {
+      animation: bobCharacter 3.6s ease-in-out infinite;
+    }
+
+    @keyframes bobCharacter {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .concierge-wave-arm {
+      transform-origin: 78px 77px;
+      animation: waveHand 2.6s ease-in-out infinite;
+    }
+
+    @keyframes waveHand {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-18deg); }
+      50% { transform: rotate(8deg); }
+      75% { transform: rotate(-14deg); }
+    }
+
+    .concierge-eyes {
+      transform-origin: 60px 44px;
+      animation: blinkEyes 4.5s infinite;
+    }
+
+    @keyframes blinkEyes {
+      0%, 94%, 100% { transform: scaleY(1); }
+      97% { transform: scaleY(0.1); }
+    }
+
+    /* ===================================================================== */
+    /* 4. INTERACTIVE VINYL RECORD & TONEARM PIN TURNTABLE                   */
+    /* ===================================================================== */
+    .vinyl-disc {
+      background:
+        radial-gradient(circle at center, transparent 36%, rgba(255,255,255,0.06) 36.5%, transparent 37%),
+        repeating-radial-gradient(
+          circle at center,
+          #090A24 0px,
+          #090A24 3px,
+          #161847 4px,
+          #090A24 5px
+        );
+      box-shadow:
+        0 22px 48px rgba(5, 6, 41, 0.42),
+        inset 0 0 0 2px rgba(230, 208, 156, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vinyl-disc::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: conic-gradient(
+        from 20deg,
+        transparent 0deg,
+        rgba(129, 91, 241, 0.24) 38deg,
+        transparent 75deg,
+        rgba(230, 208, 156, 0.2) 185deg,
+        rgba(79, 57, 255, 0.26) 225deg,
+        transparent 270deg
+      );
+      pointer-events: none;
+    }
+
+    .vinyl-disc.spinning {
+      animation: spinVinyl 5.5s linear infinite;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .tonearm-assembly {
+      transform-origin: 36px 36px;
+      transform: rotate(-32deg);
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .tonearm-assembly.dragging {
+      transition: none;
+      cursor: grabbing;
+    }
+
+    .tonearm-assembly.engaged {
+      transform: rotate(15deg);
+    }
+
+    .soundwave-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(79, 57, 255, 0.45);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .turntable-playing .soundwave-ring-1 {
+      animation: soundPulse 2.4s ease-out infinite;
+    }
+
+    .turntable-playing .soundwave-ring-2 {
+      animation: soundPulse 2.4s ease-out 1.2s infinite;
+    }
+
+    @keyframes soundPulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      100% { transform: scale(1.22); opacity: 0; }
+    }
+
+    .music-note {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      color: #4F39FF;
+      font-weight: bold;
+    }
+
+    .turntable-playing .music-note-1 { animation: floatNote 3.2s ease-in-out infinite; }
+    .turntable-playing .music-note-2 { animation: floatNote 3.6s ease-in-out 1.1s infinite; }
+    .turntable-playing .music-note-3 { animation: floatNote 2.9s ease-in-out 2.1s infinite; }
+
+    @keyframes floatNote {
+      0% { transform: translateY(0) scale(0.8); opacity: 0; }
+      30% { opacity: 0.9; }
+      100% { transform: translateY(-48px) translateX(14px) scale(1.15); opacity: 0; }
+    }
+
+    /* ===================================================================== */
+    /* 5. INSIDE CARD ENTRANCE, CHAMPAGNE & TIMELINE ANIMATIONS              */
+    /* ===================================================================== */
+    .reveal-mask {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+
+    .reveal-word {
+      display: inline-block;
+      transform: translateY(112%);
+      opacity: 0;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+    }
+
+    .stage-active .reveal-word {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    .cascade-item {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+      filter: blur(5px);
+      transition:
+        opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .stage-active .cascade-item {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .digit-flip {
+      animation: digitPop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes digitPop {
+      0% { transform: translateY(-6px); opacity: 0.4; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .countdown-card {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .countdown-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79, 57, 255, 0.45);
+      box-shadow: 0 12px 26px -10px rgba(79, 57, 255, 0.25);
+    }
+
+    /* Primary Signal CTA (#4F39FF Electric Indigo) */
+    .cta-brand {
+      background: #4F39FF;
+      color: #FFFFFF;
+      box-shadow: 0 10px 28px -6px rgba(79, 57, 255, 0.45);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cta-brand::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 4.5s infinite ease-in-out;
+    }
+
+    @keyframes ctaShine {
+      0%, 65% { left: -100%; }
+      100% { left: 180%; }
+    }
+
+    .cta-brand:hover {
+      background: #3F28F5;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -6px rgba(79, 57, 255, 0.6);
+    }
+
+    /* Champagne Bottle Shake & Pop Animations */
+    .champagne-bottle-rig {
+      transform-origin: 50% 88%;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .champagne-bottle-rig:active {
+      cursor: grabbing;
+    }
+
+    .champagne-rattle {
+      animation: bottleShakeVibe 0.3s ease-in-out infinite;
+    }
+
+    @keyframes bottleShakeVibe {
+      0%, 100% { transform: rotate(0deg) translateY(0px); }
+      25% { transform: rotate(-11deg) translateY(-5px); }
+      50% { transform: rotate(10deg) translateY(-2px); }
+      75% { transform: rotate(-9deg) translateY(-6px); }
+    }
+
+    .champagne-cork {
+      transform-origin: 60px 24px;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease 0.35s;
+    }
+
+    .bottle-popped .champagne-cork {
+      transform: translate3d(54px, -195px, 0) rotate(245deg) scale(0.8);
+      opacity: 0;
+    }
+
+    .champagne-foam-plume {
+      opacity: 0;
+      transform-origin: 60px 30px;
+      transform: scaleY(0.15) scaleX(0.4);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+    }
+
+    .bottle-popped .champagne-foam-plume {
+      opacity: 1;
+      transform: scaleY(1.1) scaleX(1.15);
+      animation: foamFizzFade 1.8s ease-out forwards;
+    }
+
+    @keyframes foamFizzFade {
+      0% { opacity: 1; transform: scaleY(1.15) scaleX(1.2); }
+      100% { opacity: 0; transform: scaleY(1.45) scaleX(1.35) translateY(-18px); }
+    }
+
+    .fizz-bubble {
+      animation: bubbleRise 2.2s ease-in infinite;
+    }
+
+    @keyframes bubbleRise {
+      0% { transform: translateY(0) scale(0.6); opacity: 0; }
+      30% { opacity: 0.85; }
+      100% { transform: translateY(-110px) scale(1.2); opacity: 0; }
+    }
+
+    /* Interactive 3D Tilt Highlight Cards */
+    .tilt-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(14, 16, 61, 0.88);
+      border: 1px solid rgba(129, 91, 241, 0.24);
+      color: #F2EFFC;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease-out, border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+    }
+
+    body.light-mode .tilt-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(38, 28, 113, 0.12);
+      color: #050629;
+    }
+
+    .tilt-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4F39FF, #815BF1, transparent);
+      transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .tilt-card:hover::before {
+      left: 120%;
+    }
+
+    .tilt-card:hover {
+      background: rgba(38, 28, 113, 0.72);
+      border-color: rgba(129, 91, 241, 0.55);
+      box-shadow: 0 22px 45px -15px rgba(0, 0, 0, 0.55), 0 0 24px rgba(79, 57, 255, 0.2);
+    }
+
+    body.light-mode .tilt-card:hover {
+      background: #FFFFFF;
+      border-color: rgba(79, 57, 255, 0.45);
+      box-shadow: 0 22px 45px -15px rgba(38, 28, 113, 0.16);
+    }
+
+    /* Timeline Spotlight */
+    .agenda-item {
+      opacity: 0.42;
+      transform: translateX(14px);
+      transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .agenda-item.revealed {
+      opacity: 0.8;
+      transform: translateX(0);
+    }
+
+    .agenda-item.in-spotlight {
+      opacity: 1 !important;
+      transform: translateX(0) scale(1.01);
+    }
+
+    .agenda-item.in-spotlight .agenda-card {
+      background: rgba(38, 28, 113, 0.78);
+      border-color: rgba(129, 91, 241, 0.65);
+      box-shadow: 0 18px 42px -12px rgba(0, 0, 0, 0.55), 0 0 28px rgba(79, 57, 255, 0.28);
+    }
+
+    body.light-mode .agenda-item.in-spotlight .agenda-card {
+      background: #FFFFFF;
+      border-color: rgba(79, 57, 255, 0.5);
+      box-shadow: 0 18px 42px -12px rgba(38, 28, 113, 0.16), 0 0 24px rgba(129, 91, 241, 0.14);
+    }
+
+    .agenda-item.in-spotlight .agenda-dot {
+      background: #4F39FF;
+      border-color: #F2EFFC;
+      box-shadow: 0 0 0 6px rgba(129, 91, 241, 0.28);
+      transform: scale(1.3);
+    }
+
+    body.light-mode .agenda-item.in-spotlight .agenda-dot {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 0 6px rgba(79, 57, 255, 0.2);
+    }
+
+    /* Spring Pop-up Modals */
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-panel {
+      transform: translateY(20px) scale(0.93);
+      opacity: 0;
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease;
+    }
+
+    .modal-backdrop.open .modal-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* Equalizer Bars */
+    .eq-bar {
+      width: 2.5px;
+      border-radius: 99px;
+      background: currentColor;
+      transition: height 0.2s ease;
+    }
+
+    .eq-playing .eq-bar:nth-child(1) { animation: eqBounce 0.7s ease-in-out infinite alternate; }
+    .eq-playing .eq-bar:nth-child(2) { animation: eqBounce 0.5s ease-in-out infinite alternate 0.15s; }
+    .eq-playing .eq-bar:nth-child(3) { animation: eqBounce 0.8s ease-in-out infinite alternate 0.3s; }
+
+    @keyframes eqBounce {
+      0% { height: 4px; }
+      100% { height: 14px; }
+    }
+
+    /* ===================================================================== */
+    /* 6. OPENED STATIONERY & UI DARK/LIGHT THEME HARMONY                    */
+    /* ===================================================================== */
+    .stationery-shell {
+      background: linear-gradient(180deg, #0E103D 0%, #050629 100%);
+      color: #F2EFFC;
+      box-shadow: 0 32px 95px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(129, 91, 241, 0.28);
+      transition: background 0.55s ease, color 0.55s ease, box-shadow 0.55s ease;
+    }
+
+    body.light-mode .stationery-shell {
+      background: #FAF8FF;
+      color: #050629;
+      box-shadow: 0 28px 85px rgba(38, 28, 113, 0.16), 0 0 0 1px rgba(129, 91, 241, 0.22);
+    }
+
+    .stationery-header {
+      background: rgba(5, 6, 41, 0.9);
+      border-color: rgba(129, 91, 241, 0.22);
+    }
+
+    body.light-mode .stationery-header {
+      background: rgba(250, 248, 255, 0.92);
+      border-color: rgba(38, 28, 113, 0.1);
+    }
+
+    .theme-card-surface {
+      background: rgba(20, 17, 68, 0.82);
+      border-color: rgba(129, 91, 241, 0.26);
+      color: #F2EFFC;
+    }
+
+    body.light-mode .theme-card-surface {
+      background: #FFFFFF;
+      border-color: rgba(38, 28, 113, 0.12);
+      color: #050629;
+    }
+
+    .turntable-platter-surface {
+      background: linear-gradient(135deg, #171352 0%, #0E103D 55%, #050629 100%);
+      border-color: rgba(129, 91, 241, 0.32);
+      box-shadow: inset 0 2px 18px rgba(0, 0, 0, 0.65);
+      transition: background 0.55s ease, border-color 0.55s ease;
+    }
+
+    body.light-mode .turntable-platter-surface {
+      background: linear-gradient(135deg, #F2EFFC 0%, #E8E2FA 55%, #DCD3F7 100%);
+      border-color: rgba(38, 28, 113, 0.15);
+      box-shadow: inset 0 2px 12px rgba(38, 28, 113, 0.08);
+    }
+
+    .floating-bar-surface {
+      background: rgba(14, 16, 61, 0.92);
+      border-color: rgba(129, 91, 241, 0.35);
+      color: #F2EFFC;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    body.light-mode .floating-bar-surface {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(38, 28, 113, 0.15);
+      color: #050629;
+      box-shadow: 0 14px 38px rgba(38, 28, 113, 0.18);
+    }
+
+    .highlight-modal-surface {
+      background: linear-gradient(180deg, #14114A 0%, #050629 100%);
+      color: #F2EFFC;
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(129, 91, 241, 0.38);
+    }
+
+    body.light-mode .highlight-modal-surface {
+      background: #FAF8FF;
+      color: #050629;
+      box-shadow: 0 32px 90px rgba(38, 28, 113, 0.28), 0 0 0 1px rgba(129, 91, 241, 0.3);
+    }
+
+    .highlight-modal-inner {
+      background: rgba(38, 28, 113, 0.42);
+      border-color: rgba(129, 91, 241, 0.25);
+    }
+
+    body.light-mode .highlight-modal-inner {
+      background: #FFFFFF;
+      border-color: rgba(38, 28, 113, 0.1);
+    }
+  </style>
+</head>
+<body class="state-closed swiss-grid-bg antialiased selection:bg-electricIndigo selection:text-white">
+
+  <!-- Hidden SVG Filter for Authentic Hand-Torn Deckle Paper Edges -->
+  <svg width="0" height="0" class="pointer-events-none absolute" aria-hidden="true">
+    <defs>
+      <filter id="deckleEdgeFilter" x="-3%" y="-3%" width="106%" height="106%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.048" numOctaves="4" seed="11" result="paperNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="paperNoise" scale="4.5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Ambient Soft Violet & Champagne Sparkle Canvas -->
+  <canvas id="ambientDustCanvas" class="pointer-events-none fixed inset-0 z-10 h-full w-full"></canvas>
+
+  <!-- Volumetric Studio Light Beams -->
+  <div class="spotlight-left"></div>
+  <div class="spotlight-right"></div>
+
+  <!-- Top-Right Controls: Dark/Light Theme Toggle + Vinyl Audio Pill -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <button
+      id="themeToggleBtn"
+      type="button"
+      aria-label="Toggle dark and light mode"
+      class="inline-flex items-center gap-2 rounded-full bg-deepIndigo/85 px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-lavender backdrop-blur-md border border-softViolet/35 hover:border-electricIndigo transition-all shadow-lg"
+    >
+      <span id="themeIcon" class="text-sm leading-none">&#9728;</span>
+      <span id="themeLabel" class="hidden sm:inline">Light Mode</span>
+    </button>
+
+    <button
+      id="audioToggleBtn"
+      type="button"
+      aria-label="Toggle vinyl music"
+      class="inline-flex items-center gap-2.5 rounded-full bg-deepIndigo/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-lavender backdrop-blur-md border border-softViolet/35 hover:border-electricIndigo transition-all shadow-lg"
+    >
+      <div id="eqBars" class="flex items-end gap-1 h-3.5 text-softViolet">
+        <span class="eq-bar h-1.5"></span>
+        <span class="eq-bar h-3"></span>
+        <span class="eq-bar h-2"></span>
+      </div>
+      <span id="audioLabel">Vinyl Off</span>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- COMPACT CUTE CHIBI ABS CONCIERGE HELPER (DOCKED BOTTOM-RIGHT)         -->
+  <!-- ===================================================================== -->
+  <div id="guideCharacterWrapper" title="Drag me anywhere or tap for tips!">
+    <div class="concierge-bob flex flex-col items-end gap-1.5">
+      <!-- Compact, Non-Intrusive Speech Bubble -->
+      <div
+        id="conciergeBubble"
+        class="theme-card-surface relative w-[195px] sm:w-[210px] rounded-2xl rounded-br-sm backdrop-blur-md border px-3 py-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.4)] transition-all"
+      >
+        <div class="flex items-center justify-between gap-1.5 mb-0.5">
+          <span class="text-[9px] font-bold uppercase tracking-[0.18em] text-softViolet">
+            ABS Helper
+          </span>
+          <button
+            id="minimizeBubbleBtn"
+            type="button"
+            aria-label="Minimize speech bubble"
+            class="flex h-4 w-4 items-center justify-center rounded-full bg-deepIndigo/80 text-[10px] font-bold text-lavender hover:bg-softViolet hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <p id="conciergeText" class="text-[11px] font-medium leading-snug opacity-90">
+          Tap the <strong class="text-softViolet">abs</strong> wax seal to break &amp; unfold!
+        </p>
+      </div>
+
+      <!-- Compact Cute Chibi Girl Avatar (72px) Wearing Blue Top with White "abs" + Dart Logo -->
+      <div id="chibiAvatarBtn" class="relative h-[72px] w-[72px] drop-shadow-[0_10px_18px_rgba(38,28,113,0.25)]">
+        <svg viewBox="0 0 120 125" class="h-full w-full overflow-visible">
+          <defs>
+            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4F39FF" />
+              <stop offset="100%" stop-color="#261C71" />
+            </linearGradient>
+          </defs>
+
+          <!-- Cute Twin Space Buns -->
+          <circle cx="34" cy="24" r="10.5" fill="#231954" />
+          <circle cx="86" cy="24" r="10.5" fill="#231954" />
+          <circle cx="34" cy="24" r="11" fill="none" stroke="#815BF1" stroke-width="2" />
+          <circle cx="86" cy="24" r="11" fill="none" stroke="#815BF1" stroke-width="2" />
+
+          <!-- Back Bob Hair -->
+          <path d="M31 44 C27 68, 30 85, 39 90 L81 90 C90 85, 93 68, 89 44 Z" fill="#231954" />
+
+          <!-- Waving Right Arm -->
+          <g class="concierge-wave-arm">
+            <path d="M79 77 Q97 65 103 49" stroke="#F9D2BF" stroke-width="9" stroke-linecap="round" fill="none" />
+            <circle cx="104" cy="47" r="5.5" fill="#F9D2BF" />
+          </g>
+
+          <!-- Left Arm -->
+          <path d="M41 78 Q29 90 33 103" stroke="#F9D2BF" stroke-width="9" stroke-linecap="round" fill="none" />
+
+          <!-- Electric Indigo / Deep Indigo Blue Top -->
+          <path
+            d="M35 74 C35 67, 45 64, 60 64 C75 64, 85 67, 85 74 L89 114 C89 118, 86 120, 82 120 L38 120 C34 120, 31 118, 31 114 Z"
+            fill="url(#shirtGrad)"
+            stroke="#FFFFFF"
+            stroke-width="1.5"
+          />
+
+          <!-- Exact White Lowercase "abs" + Upward-Right Dart Logo on Her Blue Top -->
+          <g transform="translate(41, 83)">
+            <text
+              x="0"
+              y="15"
+              fill="#FFFFFF"
+              font-family="Plus Jakarta Sans, sans-serif"
+              font-weight="700"
+              font-size="16"
+              letter-spacing="-0.6"
+            >
+              abs
+            </text>
+            <path d="M26.5 4 C30.5 2.2, 34.5 0.8, 38 -0.2 C36.6 2.8, 35.2 5.8, 33.8 8.6 C32.4 6.5, 30 4.9, 26.5 4 Z" fill="#815BF1" />
+          </g>
+
+          <!-- Neck -->
+          <rect x="54" y="56" width="12" height="12" rx="5" fill="#F9D2BF" />
+
+          <!-- Cute Chibi Head -->
+          <ellipse cx="60" cy="43" rx="22" ry="20.5" fill="#F9D2BF" />
+
+          <!-- Soft Rosy Cheeks -->
+          <ellipse cx="45" cy="48" rx="4" ry="2.2" fill="#F28B82" opacity="0.65" />
+          <ellipse cx="75" cy="48" rx="4" ry="2.2" fill="#F28B82" opacity="0.65" />
+
+          <!-- Big Sparkling Chibi Eyes -->
+          <g class="concierge-eyes">
+            <circle cx="50.5" cy="43" r="3.4" fill="#050629" />
+            <circle cx="51.7" cy="41.6" r="1.3" fill="#FFFFFF" />
+            <circle cx="49.5" cy="44.2" r="0.6" fill="#FFFFFF" />
+            <circle cx="69.5" cy="43" r="3.4" fill="#050629" />
+            <circle cx="70.7" cy="41.6" r="1.3" fill="#FFFFFF" />
+            <circle cx="68.5" cy="44.2" r="0.6" fill="#FFFFFF" />
+          </g>
+
+          <!-- Cute Cat-Smile -->
+          <path d="M55.5 50.5 Q60 54.5 64.5 50.5" stroke="#050629" stroke-width="1.9" stroke-linecap="round" fill="none" />
+
+          <!-- Front Bangs & Soft Violet Hairclip -->
+          <path
+            d="M38 41 C38 24, 49 18, 60 18 C71 18, 82 24, 82 41 C78 32, 71 29, 64 30 C56 32, 46 33, 38 41 Z"
+            fill="#231954"
+          />
+          <rect x="70" y="27" width="8" height="3.2" rx="1.6" transform="rotate(22 70 27)" fill="#815BF1" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- STATE 1 ('closed') & STATE 2 ('opening'): 3D COTTON-RAG ENVELOPE      -->
+  <!-- ===================================================================== -->
+  <section
+    id="envelopeStage"
+    class="relative z-20 flex min-h-screen flex-col items-center justify-center px-5 py-14 overflow-hidden transition-all duration-1000"
+  >
+    <!-- Flat-Lay Overlapping Cotton-Paper Envelopes in the Periphery -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-85">
+      <div class="flatlay-backdrop-card cotton-fibers-overlay absolute -top-24 -left-20 h-[360px] w-[280px] -rotate-12 rounded-sm"></div>
+      <div class="flatlay-backdrop-card cotton-fibers-overlay absolute -top-28 right-[-60px] h-[340px] w-[300px] rotate-[16deg] rounded-sm"></div>
+      <div class="flatlay-backdrop-card cotton-fibers-overlay absolute -bottom-24 -left-16 h-[330px] w-[310px] rotate-[11deg] rounded-sm"></div>
+      <div class="flatlay-backdrop-card cotton-fibers-overlay absolute -bottom-28 right-[-40px] h-[370px] w-[290px] -rotate-[14deg] rounded-sm"></div>
+    </div>
+
+    <!-- Top Editorial Pill with Exact ABS Logo -->
+    <div class="relative z-20 mb-7 text-center">
+      <div id="topStagePill" class="inline-flex items-center gap-3 rounded-full border border-softViolet/35 bg-deepIndigo/75 px-5 py-2 backdrop-blur-md shadow-lg transition-colors">
+        <svg class="h-5 w-auto" viewBox="0 0 88 32" fill="none">
+          <defs>
+            <linearGradient id="absDartTop" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4F39FF" />
+              <stop offset="100%" stop-color="#815BF1" />
+            </linearGradient>
+          </defs>
+          <text id="topAbsWordmark" x="2" y="25" fill="#F2EFFC" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="25" letter-spacing="-0.8">abs</text>
+          <path d="M56 9.5 C64 6.5, 73 4, 82 2 C79.5 8, 76.5 14, 73.5 19.5 C70.5 15.2, 65 11.8, 56 9.5 Z" fill="url(#absDartTop)" />
+        </svg>
+        <span id="topPillDivider" class="h-3.5 w-[1px] bg-lavender/25"></span>
+        <span id="topPillLabel" class="text-[10px] font-bold uppercase tracking-[0.26em] text-lavender">
+          Client Spotlight
+        </span>
+      </div>
+    </div>
+
+    <!-- Portrait Vertical Handcrafted Cotton-Rag Envelope (aspect-[3/4.15]) -->
+    <div id="envelopeFloatParent" class="envelope-stage relative z-20 w-full max-w-[330px] sm:max-w-[400px]">
+      <!-- Soft Violet & Electric Indigo Spotlight Halo Behind Envelope -->
+      <div class="envelope-stage-halo"></div>
+      <div class="envelope-float">
+        <div
+          id="envelopeCard"
+          role="button"
+          tabindex="0"
+          aria-label="Break the organic wax seal to open the left-hinged cotton envelope"
+          class="portrait-envelope-wrapper group relative mx-auto aspect-[3/4.15] w-full cursor-pointer select-none"
+        >
+          <!-- Deckle-Edge Cotton Paper Envelope Backing -->
+          <div class="cotton-paper-base cotton-fibers-overlay absolute inset-0 rounded-[4px]"></div>
+
+          <!-- Peeking Grooved ABS Vinyl Record Inside Pocket -->
+          <div class="envelope-peek-vinyl" aria-hidden="true">
+            <div class="flex h-14 w-14 flex-col items-center justify-center rounded-full bg-gradient-to-br from-electricIndigo via-softViolet to-deepIndigo border border-champagneLight">
+              <span class="text-[11px] font-bold tracking-tight text-white">abs</span>
+              <span class="mt-0.5 h-2 w-2 rounded-full bg-lavender"></span>
+            </div>
+          </div>
+
+          <!-- Tall Fine-Art Card Nestled Inside -->
+          <div class="portrait-inner-card flex flex-col justify-between p-6 sm:p-8">
+            <!-- Delicate Fine-Line Botanical & Architectural Etching Along Right Margin -->
+            <svg
+              class="pointer-events-none absolute right-0 bottom-0 h-[84%] w-[62%] opacity-85"
+              viewBox="0 0 240 380"
+              fill="none"
+            >
+              <g id="innerCardBotanicalGroup" stroke="#815BF1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M135 375 C138 300, 146 230, 162 155" stroke-width="1.35" />
+                <path d="M139 375 C142 302, 150 232, 165 157" stroke-width="0.6" stroke-opacity="0.45" />
+                <path d="M145 275 C115 255, 92 225, 86 196 C112 204, 134 228, 146 268 Z" stroke-width="1.1" fill="#261C71" fill-opacity="0.45" />
+                <path d="M88 198 C110 220, 128 242, 145 269" stroke-width="0.75" />
+                <path d="M150 245 C178 220, 206 202, 228 196 C214 224, 188 246, 151 252 Z" stroke-width="1.1" fill="#261C71" fill-opacity="0.45" />
+                <path d="M225 198 C198 216, 174 234, 151 249" stroke-width="0.75" />
+                <path d="M162 155 C124 148, 102 114, 114 82 C126 52, 166 44, 198 62 C226 78, 232 118, 206 144 C192 156, 176 158, 162 155 Z" stroke-width="1.2" fill="#16134F" fill-opacity="0.65" />
+                <path d="M132 135 C120 112, 128 84, 154 74 C178 65, 204 82, 204 108 C204 130, 182 146, 158 145" stroke-width="0.9" />
+                <path d="M146 122 C140 104, 152 88, 170 88 C186 88, 194 104, 186 118 C178 132, 158 132, 146 122 Z" stroke-width="0.85" />
+                <circle cx="168" cy="104" r="2.4" fill="#815BF1" stroke="none" />
+                <circle cx="160" cy="110" r="1.5" fill="#4F39FF" stroke="none" />
+              </g>
+            </svg>
+
+            <!-- Editorial Card Header -->
+            <div class="relative z-10 max-w-[65%]">
+              <p class="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.26em] text-softViolet">
+                Executive Invitation
+              </p>
+              <h2 class="mt-2 font-serif italic text-2xl sm:text-3xl font-semibold leading-tight">
+                ABS Client Spotlight
+              </h2>
+              <div class="mt-2.5 h-[1px] w-10 bg-softViolet/40"></div>
+              <p class="mt-3 text-[10px] sm:text-xs leading-relaxed opacity-80">
+                An intimate celebration of enterprise vision, live innovation, and curated sound.
+              </p>
+            </div>
+
+            <!-- Card Footer Preview -->
+            <div class="relative z-10 max-w-[64%]">
+              <span class="inline-block rounded-full border border-softViolet/35 bg-deepIndigo/60 px-3 py-1 text-[8px] font-semibold uppercase tracking-[0.2em] text-lavender">
+                5-Act Agenda &amp; Vinyl
+              </span>
+            </div>
+          </div>
+
+          <!-- Right & Bottom Folded Cotton Pocket Flaps -->
+          <div class="portrait-pocket-right cotton-fibers-overlay"></div>
+          <div class="portrait-pocket-bottom cotton-fibers-overlay"></div>
+
+          <!-- Left-Hinged Triangular Cotton Flap (Swings Open Left-to-Right) -->
+          <div class="portrait-left-flap cotton-fibers-overlay">
+            <!-- Blind-Debossed Botanical Wreath Pressed into Left Flap -->
+            <svg
+              class="debossed-botanical pointer-events-none absolute left-[12%] top-1/2 h-[44%] w-[56%] -translate-y-1/2"
+              viewBox="0 0 180 220"
+              fill="none"
+            >
+              <g stroke="#D9CFF7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M135 110 C105 88, 72 82, 34 86" />
+                <path d="M108 94 C98 78, 86 70, 74 68" />
+                <path d="M84 87 C72 72, 58 66, 44 66" />
+                <path d="M62 85 C50 74, 38 70, 26 72" />
+                <ellipse cx="71" cy="67" rx="6" ry="3.2" transform="rotate(-22 71 67)" fill="#E4DCFA" />
+                <ellipse cx="42" cy="65" rx="6.5" ry="3.2" transform="rotate(-15 42 65)" fill="#E4DCFA" />
+                <ellipse cx="24" cy="72" rx="5.5" ry="3" transform="rotate(-8 24 72)" fill="#E4DCFA" />
+                <ellipse cx="32" cy="87" rx="6" ry="3" transform="rotate(10 32 87)" fill="#E4DCFA" />
+
+                <path d="M135 110 C105 132, 72 138, 34 134" />
+                <path d="M108 126 C98 142, 86 150, 74 152" />
+                <path d="M84 133 C72 148, 58 154, 44 154" />
+                <path d="M62 135 C50 146, 38 150, 26 148" />
+                <ellipse cx="71" cy="153" rx="6" ry="3.2" transform="rotate(22 71 153)" fill="#E4DCFA" />
+                <ellipse cx="42" cy="155" rx="6.5" ry="3.2" transform="rotate(15 42 155)" fill="#E4DCFA" />
+                <ellipse cx="24" cy="148" rx="5.5" ry="3" transform="rotate(8 24 148)" fill="#E4DCFA" />
+                <ellipse cx="32" cy="133" rx="6" ry="3" transform="rotate(-10 32 133)" fill="#E4DCFA" />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Two-Piece Cracking Hand-Poured Wax Seal at the Right-Pointing Apex of the Left Flap -->
+          <div id="waxSealContainer" class="organic-wax-seal-container flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center">
+            <span class="seal-pulse absolute inset-2 rounded-full border-2 border-softViolet/75"></span>
+
+            <!-- Pulsing "Tap Seal to Break" Hint Pill -->
+            <span class="seal-hint-badge absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-midnight/90 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-lavender shadow-md">
+              Tap Seal to Break
+            </span>
+
+            <!-- Split-Half Organic Metallic Soft Violet & Deep Indigo Wax Seal SVG -->
+            <svg viewBox="0 0 120 120" class="h-full w-full overflow-visible">
+              <defs>
+                <radialGradient id="organicWaxGrad" cx="35%" cy="30%" r="72%">
+                  <stop offset="0%" stop-color="#9B7CF7" />
+                  <stop offset="48%" stop-color="#6946E8" />
+                  <stop offset="85%" stop-color="#261C71" />
+                  <stop offset="100%" stop-color="#150F47" />
+                </radialGradient>
+                <linearGradient id="waxRimHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F2EFFC" stop-opacity="0.9" />
+                  <stop offset="50%" stop-color="#815BF1" stop-opacity="0.3" />
+                  <stop offset="100%" stop-color="#050629" stop-opacity="0.7" />
+                </linearGradient>
+
+                <clipPath id="sealLeftClip">
+                  <polygon points="0,0 62,0 56,36 65,62 55,88 61,120 0,120" />
+                </clipPath>
+                <clipPath id="sealRightClip">
+                  <polygon points="62,0 120,0 120,120 61,120 55,88 65,62 56,36" />
+                </clipPath>
+              </defs>
+
+              <!-- LEFT WAX HALF -->
+              <g class="wax-half-left" clip-path="url(#sealLeftClip)">
+                <path
+                  d="M60 10 C75 9, 91 16, 100 29 C109 41, 113 58, 107 74 C102 89, 91 103, 75 108 C59 113, 41 111, 28 100 C15 89, 9 72, 12 55 C14 39, 23 23, 37 16 C45 12, 52 10, 60 10 Z"
+                  fill="url(#organicWaxGrad)"
+                  stroke="url(#waxRimHighlight)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M60 18 C72 17, 85 23, 92 34 C99 44, 102 58, 97 70 C93 82, 84 93, 71 97 C58 101, 44 99, 34 90 C24 81, 19 68, 21 55 C23 42, 30 29, 42 23 C48 20, 54 18, 60 18 Z"
+                  fill="#1C1457"
+                  fill-opacity="0.75"
+                  stroke="#E6D09C"
+                  stroke-width="1.3"
+                  stroke-opacity="0.75"
+                />
+                <g transform="translate(30, 46)">
+                  <text x="0" y="22" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="23" letter-spacing="-0.8">abs</text>
+                  <path d="M42 7.5 C49 5, 56 3, 63 1.5 C61 6.5, 58.5 11.5, 56 16 C53.5 12.5, 49 9.8, 42 7.5 Z" fill="#E6D09C" />
+                </g>
+              </g>
+
+              <!-- RIGHT WAX HALF -->
+              <g class="wax-half-right" clip-path="url(#sealRightClip)">
+                <path
+                  d="M60 10 C75 9, 91 16, 100 29 C109 41, 113 58, 107 74 C102 89, 91 103, 75 108 C59 113, 41 111, 28 100 C15 89, 9 72, 12 55 C14 39, 23 23, 37 16 C45 12, 52 10, 60 10 Z"
+                  fill="url(#organicWaxGrad)"
+                  stroke="url(#waxRimHighlight)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M60 18 C72 17, 85 23, 92 34 C99 44, 102 58, 97 70 C93 82, 84 93, 71 97 C58 101, 44 99, 34 90 C24 81, 19 68, 21 55 C23 42, 30 29, 42 23 C48 20, 54 18, 60 18 Z"
+                  fill="#1C1457"
+                  fill-opacity="0.75"
+                  stroke="#E6D09C"
+                  stroke-width="1.3"
+                  stroke-opacity="0.75"
+                />
+                <g transform="translate(30, 46)">
+                  <text x="0" y="22" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="23" letter-spacing="-0.8">abs</text>
+                  <path d="M42 7.5 C49 5, 56 3, 63 1.5 C61 6.5, 58.5 11.5, 56 16 C53.5 12.5, 49 9.8, 42 7.5 Z" fill="#E6D09C" />
+                </g>
+              </g>
+
+              <!-- Glowing Jagged Fracture Line Flash on Crack -->
+              <polyline
+                class="wax-fracture-glow"
+                points="62,10 56,36 65,62 55,88 61,110"
+                fill="none"
+                stroke="#FFFFFF"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Minimalist Unseal Prompt -->
+    <div class="relative z-20 mt-10 text-center">
+      <button
+        id="openEnvelopeBtn"
+        type="button"
+        class="group inline-flex items-center gap-3 rounded-full border border-softViolet/45 bg-deepIndigo/85 px-7 py-3 text-xs font-bold tracking-[0.2em] uppercase text-lavender backdrop-blur-md hover:border-electricIndigo hover:bg-electricIndigo hover:text-white transition-all shadow-lg"
+      >
+        <span class="h-2 w-2 rounded-full bg-softViolet group-hover:bg-white transition-colors"></span>
+        <span>Break Seal &amp; Unfold</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- STATE 3 ('opened'): FULL INTERACTIVE INVITATION STAGE                 -->
+  <!-- Strictly hidden (display:none; visibility:hidden) until seal breaks   -->
+  <!-- ===================================================================== -->
+  <main
+    id="invitationStage"
+    aria-hidden="true"
+    style="display: none; visibility: hidden;"
+    class="relative z-20 opacity-0 transition-opacity duration-1000 px-3 sm:px-6 py-4 sm:py-8 pb-28"
+  >
+    <!-- Main Adaptive Stationery Card -->
+    <div class="stationery-shell mx-auto max-w-5xl overflow-hidden rounded-[26px]">
+      
+      <!-- Sticky Editorial Top Bar with Exact ABS Logo -->
+      <header class="stationery-header sticky top-0 z-30 border-b backdrop-blur-xl transition-colors">
+        <div class="flex items-center justify-between px-5 sm:px-10 py-3.5">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center rounded-xl bg-lavender px-3 py-1.5 border border-deepIndigo/15">
+              <svg class="h-5 w-auto" viewBox="0 0 88 32" fill="none">
+                <defs>
+                  <linearGradient id="headerDartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4F39FF" />
+                    <stop offset="100%" stop-color="#815BF1" />
+                  </linearGradient>
+                </defs>
+                <text x="2" y="25" fill="#050629" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="25" letter-spacing="-0.8">abs</text>
+                <path d="M56 9.5 C64 6.5, 73 4, 82 2 C79.5 8, 76.5 14, 73.5 19.5 C70.5 15.2, 65 11.8, 56 9.5 Z" fill="url(#headerDartGrad)" />
+              </svg>
+            </div>
+            <span class="hidden sm:inline-block text-[11px] font-bold uppercase tracking-[0.22em] opacity-80">
+              Client Spotlight
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 sm:gap-3 pr-40 sm:pr-56">
+            <a
+              href="#champagne-toast"
+              class="hidden xl:inline-block text-xs font-semibold uppercase tracking-[0.15em] opacity-75 hover:opacity-100 hover:text-softViolet transition-all px-2 py-2"
+            >
+              Champagne
+            </a>
+            <a
+              href="#vinyl-turntable"
+              class="hidden lg:inline-block text-xs font-semibold uppercase tracking-[0.15em] opacity-75 hover:opacity-100 hover:text-softViolet transition-all px-2 py-2"
+            >
+              Vinyl Lounge
+            </a>
+            <a
+              href="#event-flow"
+              class="hidden md:inline-block text-xs font-semibold uppercase tracking-[0.15em] opacity-75 hover:opacity-100 hover:text-softViolet transition-all px-2 py-2"
+            >
+              Agenda Flow
+            </a>
+            <a
+              href="https://luma.com/7ta1l5vy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-brand rounded-full px-4 sm:px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em]"
+            >
+              Register on Luma
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO SECTION: FINE-ART ETCHED BOTANICAL MARGIN + KINETIC REVEAL + LIVE COUNTDOWN -->
+      <section class="relative overflow-hidden border-b border-softViolet/20 px-6 sm:px-12 pt-12 pb-14 sm:pt-16 sm:pb-16 text-center">
+        <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-48 w-3/4 bg-softViolet/20 blur-[75px]"></div>
+
+        <!-- Delicate Soft Violet & Deep Indigo Fine-Line Botanical Etching Along Right Margin -->
+        <svg
+          aria-hidden="true"
+          class="pointer-events-none absolute -right-8 bottom-0 h-[92%] w-[340px] sm:w-[420px] opacity-[0.22]"
+          viewBox="0 0 320 440"
+          fill="none"
+        >
+          <g stroke="#815BF1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M185 435 C190 345, 200 260, 222 175" stroke-width="1.6" />
+            <path d="M196 315 C155 288, 125 252, 116 214 C150 225, 180 256, 196 306 Z" stroke-width="1.3" />
+            <path d="M119 217 C148 245, 173 274, 195 308" stroke-width="0.9" />
+            <path d="M204 275 C242 244, 278 222, 306 214 C288 250, 254 278, 206 284 Z" stroke-width="1.3" />
+            <path d="M302 217 C268 240, 236 262, 206 281" stroke-width="0.9" />
+            <path d="M222 175 C172 166, 144 122, 160 80 C176 42, 228 32, 268 54 C306 76, 314 128, 280 160 C262 176, 240 179, 222 175 Z" stroke-width="1.4" />
+            <path d="M182 148 C166 118, 178 82, 212 68 C244 56, 278 78, 278 112 C278 142, 248 162, 218 160" stroke-width="1.1" />
+            <path d="M202 132 C194 108, 210 86, 234 86 C254 86, 266 108, 254 126 C244 144, 218 144, 202 132 Z" stroke-width="1" />
+            <line x1="255" y1="20" x2="255" y2="420" stroke="#815BF1" stroke-width="0.9" stroke-dasharray="4 4" />
+            <circle cx="255" cy="54" r="4" stroke="#4F39FF" stroke-width="1.3" />
+          </g>
+        </svg>
+
+        <div class="theme-card-surface cascade-item relative z-10 mb-5 inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 shadow-sm" style="transition-delay: 0.08s;">
+          <span class="h-1.5 w-1.5 rounded-full bg-electricIndigo"></span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.26em]">
+            Executive Forum &amp; Showcase
+          </span>
+        </div>
+
+        <h2 class="relative z-10 mx-auto max-w-3xl font-serif text-4xl sm:text-6xl md:text-[64px] font-semibold tracking-tight leading-[1.06]">
+          <span class="reveal-mask mr-2.5"><span class="reveal-word" style="transition-delay: 0.16s;">ABS</span></span>
+          <span class="reveal-mask mr-2.5"><span class="reveal-word text-softViolet" style="transition-delay: 0.28s;">Client</span></span>
+          <span class="reveal-mask"><span class="reveal-word text-electricIndigo" style="transition-delay: 0.40s;">Spotlight</span></span>
+        </h2>
+
+        <p class="cascade-item relative z-10 mx-auto mt-5 max-w-xl text-sm sm:text-base font-normal leading-relaxed opacity-80" style="transition-delay: 0.48s;">
+          An exclusive evening celebrating enterprise innovation, live platform breakthroughs, and curated peer dialogue with ABS leadership.
+        </p>
+
+        <!-- Live Countdown Strip -->
+        <div class="cascade-item relative z-10 mx-auto mt-9 max-w-lg" style="transition-delay: 0.58s;">
+          <div class="grid grid-cols-4 gap-2.5 sm:gap-4">
+            <div class="theme-card-surface countdown-card relative overflow-hidden rounded-2xl border py-3.5 px-2 shadow-sm">
+              <div class="absolute top-0 inset-x-0 h-[3px] bg-softViolet"></div>
+              <span id="cdDays" class="block font-serif text-2xl sm:text-4xl font-bold">14</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.2em] opacity-65">Days</span>
+            </div>
+            <div class="theme-card-surface countdown-card relative overflow-hidden rounded-2xl border py-3.5 px-2 shadow-sm">
+              <div class="absolute top-0 inset-x-0 h-[3px] bg-softViolet"></div>
+              <span id="cdHours" class="block font-serif text-2xl sm:text-4xl font-bold">08</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.2em] opacity-65">Hours</span>
+            </div>
+            <div class="theme-card-surface countdown-card relative overflow-hidden rounded-2xl border py-3.5 px-2 shadow-sm">
+              <div class="absolute top-0 inset-x-0 h-[3px] bg-electricIndigo"></div>
+              <span id="cdMins" class="block font-serif text-2xl sm:text-4xl font-bold">45</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.2em] opacity-65">Minutes</span>
+            </div>
+            <div class="theme-card-surface countdown-card relative overflow-hidden rounded-2xl border py-3.5 px-2 shadow-sm">
+              <div class="absolute top-0 inset-x-0 h-[3px] bg-electricIndigo"></div>
+              <span id="cdSecs" class="block font-serif text-2xl sm:text-4xl font-bold text-electricIndigo">30</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.2em] opacity-65">Seconds</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- INTERACTIVE SHAKE-TO-POP ABS CUVÉE CHAMPAGNE CELEBRATION          -->
+      <!-- ================================================================= -->
+      <section
+        id="champagne-toast"
+        class="cascade-item border-b border-softViolet/20 px-6 sm:px-12 py-14 sm:py-16"
+        style="transition-delay: 0.62s;"
+      >
+        <div class="theme-card-surface mx-auto max-w-4xl rounded-3xl border p-6 sm:p-10 shadow-[0_24px_60px_-15px_rgba(5,6,41,0.35)]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
+            
+            <!-- Left: Interactive Shakeable ABS Cuvée Champagne Bottle -->
+            <div class="lg:col-span-6 flex flex-col items-center justify-center">
+              <div
+                id="champagneStageBox"
+                class="relative flex h-[300px] w-[280px] sm:h-[320px] sm:w-[320px] items-end justify-center rounded-3xl bg-gradient-to-b from-midnight via-deepIndigo to-[#140F47] border border-softViolet/30 pb-6 overflow-visible shadow-[inset_0_2px_20px_rgba(129,91,241,0.22)] select-none"
+              >
+                <!-- Ambient Golden & Soft Violet Glow Behind Bottle -->
+                <div class="pointer-events-none absolute inset-6 rounded-full bg-softViolet/20 blur-2xl"></div>
+
+                <!-- Rising Fizz Bubbles Inside Stage -->
+                <span class="fizz-bubble pointer-events-none absolute bottom-16 left-16 h-2 w-2 rounded-full bg-champagneLight/80"></span>
+                <span class="fizz-bubble pointer-events-none absolute bottom-20 right-16 h-1.5 w-1.5 rounded-full bg-softViolet/90" style="animation-delay: 0.7s;"></span>
+                <span class="fizz-bubble pointer-events-none absolute bottom-14 left-24 h-2.5 w-2.5 rounded-full bg-champagne/70" style="animation-delay: 1.3s;"></span>
+
+                <!-- Interactive Bottle Rig (Drag Back & Forth or Click/Tap to Shake) -->
+                <div
+                  id="champagneBottleRig"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Shake the ABS Cuvée champagne bottle to pop the cork"
+                  class="champagne-bottle-rig relative z-20 h-[250px] w-[120px]"
+                >
+                  <svg viewBox="0 0 120 260" class="h-full w-full overflow-visible drop-shadow-[0_18px_28px_rgba(0,0,0,0.65)]">
+                    <defs>
+                      <linearGradient id="bottleGlassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#050629" />
+                        <stop offset="28%" stop-color="#261C71" />
+                        <stop offset="55%" stop-color="#130E45" />
+                        <stop offset="85%" stop-color="#050629" />
+                        <stop offset="100%" stop-color="#1D1559" />
+                      </linearGradient>
+                      <linearGradient id="foilNeckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#9E7B2F" />
+                        <stop offset="35%" stop-color="#F3E5AB" />
+                        <stop offset="70%" stop-color="#C5A059" />
+                        <stop offset="100%" stop-color="#7D5E1D" />
+                      </linearGradient>
+                      <linearGradient id="foamPlumeGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="#FFFFFF" />
+                        <stop offset="55%" stop-color="#F3E5AB" />
+                        <stop offset="100%" stop-color="#815BF1" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+
+                    <!-- Effervescent Foam Plume (Appears on Cork Pop) -->
+                    <g class="champagne-foam-plume">
+                      <path d="M51 34 C42 10, 26 -14, 18 -26 C38 -18, 48 -4, 56 26 Z" fill="url(#foamPlumeGrad)" />
+                      <path d="M69 34 C78 10, 94 -14, 102 -26 C82 -18, 72 -4, 64 26 Z" fill="url(#foamPlumeGrad)" />
+                      <path d="M55 34 C53 4, 56 -24, 60 -36 C64 -24, 67 4, 65 34 Z" fill="#FFFFFF" opacity="0.92" />
+                      <circle cx="34" cy="-12" r="3" fill="#F3E5AB" />
+                      <circle cx="86" cy="-14" r="3.5" fill="#815BF1" />
+                      <circle cx="60" cy="-28" r="2.5" fill="#FFFFFF" />
+                    </g>
+
+                    <!-- Flying Gold & Cork Stopper -->
+                    <g class="champagne-cork">
+                      <rect x="51" y="12" width="18" height="16" rx="3" fill="#D2A669" stroke="#8C6239" stroke-width="1" />
+                      <path d="M49 12 C49 6, 71 6, 71 12 L69 22 L51 22 Z" fill="url(#foilNeckGrad)" />
+                      <line x1="50" y1="21" x2="70" y2="21" stroke="#261C71" stroke-width="1.5" />
+                    </g>
+
+                    <!-- Bottle Body & Slender Neck -->
+                    <path
+                      d="M50 32 L70 32 L73 84 C74 102, 92 114, 92 138 L92 238 C92 246, 86 250, 78 250 L42 250 C34 250, 28 246, 28 238 L28 138 C28 114, 46 102, 47 84 Z"
+                      fill="url(#bottleGlassGrad)"
+                      stroke="#815BF1"
+                      stroke-width="1.2"
+                      stroke-opacity="0.55"
+                    />
+
+                    <!-- Specular Glass Highlight -->
+                    <path d="M36 138 L36 236" stroke="#F2EFFC" stroke-width="2.5" stroke-linecap="round" opacity="0.24" />
+                    <path d="M53 42 L51 84" stroke="#F2EFFC" stroke-width="1.8" stroke-linecap="round" opacity="0.3" />
+
+                    <!-- Gold Foil Neck Collar -->
+                    <path d="M49 32 L71 32 L73 74 L47 74 Z" fill="url(#foilNeckGrad)" />
+                    <rect x="46" y="72" width="28" height="6" rx="2" fill="#261C71" stroke="#F3E5AB" stroke-width="1" />
+
+                    <!-- Luxury ABS Cuvée Front Label -->
+                    <rect x="35" y="142" width="50" height="72" rx="6" fill="#FAF8FF" stroke="#C5A059" stroke-width="1.8" />
+                    <rect x="38" y="145" width="44" height="66" rx="4" fill="none" stroke="#4F39FF" stroke-width="0.7" stroke-opacity="0.4" />
+
+                    <!-- Exact ABS Logo on Bottle Label -->
+                    <g transform="translate(43, 154)">
+                      <text x="0" y="16" fill="#050629" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="16" letter-spacing="-0.6">abs</text>
+                      <path d="M27 4.5 C31 2.5, 35 1, 39 0 C37.5 3, 36 6, 34.5 9 C33 6.8, 30.5 5.2, 27 4.5 Z" fill="#4F39FF" />
+                    </g>
+
+                    <line x1="43" y1="176" x2="77" y2="176" stroke="#C5A059" stroke-width="1" />
+                    <text x="60" y="189" text-anchor="middle" fill="#261C71" font-family="Cormorant Garamond, serif" font-weight="700" font-size="10.5" letter-spacing="0.8">
+                      CUVÉE 2026
+                    </text>
+                    <text x="60" y="200" text-anchor="middle" fill="#4F39FF" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="6.5" letter-spacing="1.4">
+                      SPOTLIGHT
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Effervescence Pressure Meter & Shake Controls -->
+            <div class="lg:col-span-6 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 rounded-full bg-electricIndigo/15 border border-softViolet/30 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                <span id="champagneStatusDot" class="h-2 w-2 rounded-full bg-champagne"></span>
+                <span id="champagneStatusText">Ready to Shake</span>
+              </div>
+
+              <h3 class="mt-3 font-serif text-3xl sm:text-4xl font-semibold">
+                ABS Cuvée Toast
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed opacity-80">
+                <strong>Drag the bottle back &amp; forth</strong> or tap <strong>Shake Bottle</strong> repeatedly to build effervescence. At 100%, the gold cork launches with a celebratory shower!
+              </p>
+
+              <!-- Pressure Gauge Bar -->
+              <div class="mt-5">
+                <div class="flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.16em] mb-1.5">
+                  <span class="opacity-75">Effervescence Pressure</span>
+                  <span id="pressurePctLabel" class="text-softViolet">0%</span>
+                </div>
+                <div class="h-3 w-full overflow-hidden rounded-full bg-midnight/40 border border-softViolet/25 p-0.5">
+                  <div
+                    id="pressureFillBar"
+                    class="h-full rounded-full bg-gradient-to-r from-electricIndigo via-softViolet to-champagneLight transition-all duration-150"
+                    style="width: 0%;"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <button
+                  id="shakeBottleBtn"
+                  type="button"
+                  class="cta-brand inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.16em]"
+                >
+                  <span>&#127870; Shake Bottle</span>
+                </button>
+
+                <button
+                  id="resetBottleBtn"
+                  type="button"
+                  class="hidden inline-flex items-center justify-center gap-2 rounded-full border border-softViolet/35 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] hover:border-electricIndigo transition-all"
+                >
+                  <span>Recork &amp; Toast Again</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- INTERACTIVE 12-INCH VINYL RECORD & TONEARM PIN TURNTABLE          -->
+      <!-- ================================================================= -->
+      <section
+        id="vinyl-turntable"
+        class="cascade-item border-b border-softViolet/20 px-6 sm:px-12 py-14 sm:py-16"
+        style="transition-delay: 0.68s;"
+      >
+        <div class="theme-card-surface mx-auto max-w-4xl rounded-3xl border p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(38,28,113,0.2)]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
+            
+            <!-- Left: Interactive Vinyl Turntable & Draggable/Clickable Tonearm Pin -->
+            <div class="lg:col-span-7 flex flex-col items-center justify-center">
+              <div
+                id="turntablePlatterBox"
+                class="turntable-platter-surface relative flex h-[280px] w-[300px] sm:h-[320px] sm:w-[350px] items-center justify-center rounded-3xl border p-4 select-none"
+              >
+                <!-- Subtle Corner Screws -->
+                <span class="absolute top-3 left-3 h-2 w-2 rounded-full bg-softViolet/35"></span>
+                <span class="absolute bottom-3 left-3 h-2 w-2 rounded-full bg-softViolet/35"></span>
+                <span class="absolute bottom-3 right-3 h-2 w-2 rounded-full bg-softViolet/35"></span>
+
+                <!-- Floating Musical Notes when Pin is Attached -->
+                <span class="music-note music-note-1 left-12 top-14 text-xl">&#9835;</span>
+                <span class="music-note music-note-2 left-24 top-10 text-2xl">&#9834;</span>
+                <span class="music-note music-note-3 left-8 top-24 text-lg">&#9833;</span>
+
+                <!-- 12-Inch Grooved Vinyl Record -->
+                <div class="relative flex items-center justify-center">
+                  <span class="soundwave-ring soundwave-ring-1"></span>
+                  <span class="soundwave-ring soundwave-ring-2"></span>
+
+                  <div
+                    id="vinylDisc"
+                    class="vinyl-disc relative flex h-[218px] w-[218px] sm:h-[248px] sm:w-[248px] items-center justify-center rounded-full"
+                  >
+                    <!-- Center Branded Label (#4F39FF -> #261C71 with Exact ABS Logo) -->
+                    <div class="flex h-24 w-24 sm:h-28 sm:w-28 flex-col items-center justify-center rounded-full bg-gradient-to-br from-electricIndigo via-softViolet to-deepIndigo border-2 border-champagneLight/85 shadow-lg text-center px-2">
+                      <svg class="h-5 sm:h-6 w-auto" viewBox="0 0 88 32" fill="none">
+                        <text x="6" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.8">abs</text>
+                        <path d="M58 9 C66 6, 75 3.5, 83 1.5 C80.5 7.5, 77.5 13.5, 74.5 19 C71.5 14.8, 66.5 11.5, 58 9 Z" fill="#E6D09C" />
+                      </svg>
+                      <span class="mt-1 text-[7px] font-bold uppercase tracking-[0.2em] text-champagneLight">
+                        33&#8531; RPM &bull; Side A
+                      </span>
+                      <!-- Spindle Hole -->
+                      <span class="mt-1.5 h-3 w-3 rounded-full bg-lavender border border-deepIndigo/50"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Articulated Metallic Tonearm Pin (Draggable & Clickable) -->
+                <div
+                  id="tonearmPin"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Drag or click tonearm pin onto vinyl record"
+                  class="tonearm-assembly absolute top-3 right-3 z-30 h-[220px] w-[72px]"
+                >
+                  <svg viewBox="0 0 72 220" class="h-full w-full overflow-visible drop-shadow-[0_8px_12px_rgba(38,28,113,0.3)]">
+                    <!-- Pivot Base -->
+                    <circle cx="36" cy="36" r="20" fill="#261C71" stroke="#C5A059" stroke-width="1.5" />
+                    <circle cx="36" cy="36" r="11" fill="#E6D09C" />
+                    <circle cx="36" cy="36" r="4" fill="#050629" />
+
+                    <!-- Metallic Tonearm Rod -->
+                    <path
+                      d="M36 36 L36 146 L23 184"
+                      stroke="#261C71"
+                      stroke-width="4.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M36 36 L36 146 L23 184"
+                      stroke="#C5A059"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                    />
+
+                    <!-- Headshell & Glowing Electric Indigo Stylus Needle Tip -->
+                    <g transform="translate(11, 178) rotate(22)">
+                      <rect x="0" y="0" width="16" height="26" rx="4" fill="#261C71" stroke="#E6D09C" stroke-width="1.3" />
+                      <circle id="stylusGlow" cx="8" cy="24" r="4.5" fill="#4F39FF" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Turntable Controls & Instructions -->
+            <div class="lg:col-span-5 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 rounded-full bg-electricIndigo/15 border border-softViolet/30 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                <span id="vinylStatusDot" class="h-2 w-2 rounded-full bg-softViolet/50 transition-colors"></span>
+                <span id="vinylStatusText">Needle Resting</span>
+              </div>
+
+              <h3 class="mt-3 font-serif text-3xl sm:text-4xl font-semibold">
+                The Spotlight Vinyl
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed opacity-80">
+                Place the tonearm pin onto the vinyl groove—either <strong>drag the needle onto the record</strong> or tap the button below—to spin the disc and play our celebratory lounge score.
+              </p>
+
+              <div class="mt-6 flex flex-col sm:flex-row lg:flex-col gap-3">
+                <button
+                  id="toggleNeedleBtn"
+                  type="button"
+                  class="cta-brand inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.16em]"
+                >
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span id="toggleNeedleBtnLabel">Place Pin &amp; Play Music</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE HIGHLIGHT CARDS WITH 3D TILT & SPRING POP-UP MODALS -->
+      <section class="border-b border-softViolet/20 px-6 sm:px-12 py-16">
+        <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-softViolet">
+              Executive Pillars
+            </p>
+            <h3 class="mt-1.5 font-serif text-3xl sm:text-4xl font-semibold">
+              Spotlight Highlights
+            </h3>
+          </div>
+          <p class="text-xs font-medium opacity-65">
+            Click any card for full session briefing
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Card 01 -->
+          <button
+            type="button"
+            onclick="openHighlightModal(0)"
+            class="theme-card-surface tilt-card group rounded-2xl p-7 text-left focus:outline-none"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">01 / Pillar</span>
+              <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-lavender text-electricIndigo group-hover:bg-electricIndigo group-hover:text-white transition-colors">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </span>
+            </div>
+            <h4 class="mt-5 font-serif text-2xl font-semibold">
+              01 / Strategic Vision
+            </h4>
+            <p class="mt-2.5 text-sm leading-relaxed opacity-75">
+              Executive keynote unveiling the next-generation roadmap for intelligent enterprise operations.
+            </p>
+            <div class="mt-6 pt-4 border-t border-softViolet/20 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-softViolet group-hover:text-electricIndigo transition-colors">
+              <span>Open Briefing</span>
+              <span>&rarr;</span>
+            </div>
+          </button>
+
+          <!-- Card 02 -->
+          <button
+            type="button"
+            onclick="openHighlightModal(1)"
+            class="theme-card-surface tilt-card group rounded-2xl p-7 text-left focus:outline-none"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-electricIndigo">02 / Pillar</span>
+              <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-lavender text-electricIndigo group-hover:bg-electricIndigo group-hover:text-white transition-colors">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
+            </div>
+            <h4 class="mt-5 font-serif text-2xl font-semibold">
+              02 / Live Platform Showcase
+            </h4>
+            <p class="mt-2.5 text-sm leading-relaxed opacity-75">
+              Live demonstrations and client transformation spotlights illustrating measurable business velocity.
+            </p>
+            <div class="mt-6 pt-4 border-t border-softViolet/20 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-softViolet group-hover:text-electricIndigo transition-colors">
+              <span>Open Briefing</span>
+              <span>&rarr;</span>
+            </div>
+          </button>
+
+          <!-- Card 03 -->
+          <button
+            type="button"
+            onclick="openHighlightModal(2)"
+            class="theme-card-surface tilt-card group rounded-2xl p-7 text-left focus:outline-none"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">03 / Pillar</span>
+              <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-lavender text-electricIndigo group-hover:bg-electricIndigo group-hover:text-white transition-colors">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </span>
+            </div>
+            <h4 class="mt-5 font-serif text-2xl font-semibold">
+              03 / Executive Networking
+            </h4>
+            <p class="mt-2.5 text-sm leading-relaxed opacity-75">
+              Curated roundtable exchange and celebratory evening reception with peer leadership.
+            </p>
+            <div class="mt-6 pt-4 border-t border-softViolet/20 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-softViolet group-hover:text-electricIndigo transition-colors">
+              <span>Open Briefing</span>
+              <span>&rarr;</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- AUTO-ANIMATED 5-STAGE SPOTLIGHT AGENDA TIMELINE -->
+      <section id="event-flow" class="px-6 sm:px-12 py-16 sm:py-20">
+        <div class="mb-12 text-center">
+          <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-softViolet">
+            Event Flow &amp; Choreography
+          </p>
+          <h3 class="mt-2 font-serif text-3xl sm:text-5xl font-semibold">
+            Spotlight Agenda Timeline
+          </h3>
+          <p class="mt-2 text-xs sm:text-sm opacity-65">
+            Scroll through the five acts or click any stage to focus the spotlight
+          </p>
+        </div>
+
+        <div id="timelineContainer" class="relative mx-auto max-w-3xl pl-8 sm:pl-12">
+          <div class="absolute left-3 sm:left-4 top-3 bottom-3 w-[2px] bg-softViolet/20"></div>
+          <div
+            id="timelineProgress"
+            class="absolute left-3 sm:left-4 top-3 w-[2px] bg-gradient-to-b from-electricIndigo via-softViolet to-deepIndigo transition-all duration-150"
+            style="height: 0%;"
+          ></div>
+
+          <div class="space-y-6">
+            <!-- Stage 1 -->
+            <div class="agenda-item relative cursor-pointer" onclick="focusMilestone(this)">
+              <span class="agenda-dot absolute -left-[25px] sm:-left-[37px] top-7 h-3.5 w-3.5 rounded-full bg-lavender border-2 border-softViolet transition-all duration-500"></span>
+              <div class="theme-card-surface agenda-card rounded-2xl border p-6 sm:p-7 transition-all duration-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                    Stage 01 &bull; Arrival
+                  </span>
+                  <span class="rounded-full bg-lavender px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-deepIndigo">
+                    Opening Toast
+                  </span>
+                </div>
+                <h4 class="mt-2.5 font-serif text-2xl font-semibold">
+                  1. Welcome &amp; Champagne Reception
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed opacity-75">
+                  Private executive arrival, artisanal refreshments, and an opening champagne toast celebrating the client partnerships at the heart of ABS.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="agenda-item relative cursor-pointer" onclick="focusMilestone(this)">
+              <span class="agenda-dot absolute -left-[25px] sm:-left-[37px] top-7 h-3.5 w-3.5 rounded-full bg-lavender border-2 border-softViolet transition-all duration-500"></span>
+              <div class="theme-card-surface agenda-card rounded-2xl border p-6 sm:p-7 transition-all duration-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                    Stage 02 &bull; Vision
+                  </span>
+                  <span class="rounded-full bg-lavender px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-deepIndigo">
+                    Executive Keynote
+                  </span>
+                </div>
+                <h4 class="mt-2.5 font-serif text-2xl font-semibold">
+                  2. Keynote: The Next Horizon
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed opacity-75">
+                  A strategic leadership address outlining how autonomous intelligence, unified governance, and modern architecture are shaping the next decade.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="agenda-item relative cursor-pointer" onclick="focusMilestone(this)">
+              <span class="agenda-dot absolute -left-[25px] sm:-left-[37px] top-7 h-3.5 w-3.5 rounded-full bg-lavender border-2 border-softViolet transition-all duration-500"></span>
+              <div class="theme-card-surface agenda-card rounded-2xl border p-6 sm:p-7 transition-all duration-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-electricIndigo">
+                    Stage 03 &bull; Center Stage
+                  </span>
+                  <span class="rounded-full bg-electricIndigo/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-electricIndigo">
+                    Live Showcase
+                  </span>
+                </div>
+                <h4 class="mt-2.5 font-serif text-2xl font-semibold">
+                  3. Live Client Spotlight &amp; Product Reveal
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed opacity-75">
+                  Honoring standout enterprise deployments alongside an exclusive live unveiling of next-generation platform innovations in real time.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="agenda-item relative cursor-pointer" onclick="focusMilestone(this)">
+              <span class="agenda-dot absolute -left-[25px] sm:-left-[37px] top-7 h-3.5 w-3.5 rounded-full bg-lavender border-2 border-softViolet transition-all duration-500"></span>
+              <div class="theme-card-surface agenda-card rounded-2xl border p-6 sm:p-7 transition-all duration-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                    Stage 04 &bull; Dialogue
+                  </span>
+                  <span class="rounded-full bg-lavender px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-deepIndigo">
+                    Peer Forum
+                  </span>
+                </div>
+                <h4 class="mt-2.5 font-serif text-2xl font-semibold">
+                  4. Fireside Executive Roundtable
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed opacity-75">
+                  Candid executive conversation exploring transformation playbooks, operational scale, and direct Q&amp;A with ABS leadership.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="agenda-item relative cursor-pointer" onclick="focusMilestone(this)">
+              <span class="agenda-dot absolute -left-[25px] sm:-left-[37px] top-7 h-3.5 w-3.5 rounded-full bg-lavender border-2 border-softViolet transition-all duration-500"></span>
+              <div class="theme-card-surface agenda-card rounded-2xl border p-6 sm:p-7 transition-all duration-500">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-softViolet">
+                    Stage 05 &bull; Finale
+                  </span>
+                  <span class="rounded-full bg-lavender px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-deepIndigo">
+                    Evening Reception
+                  </span>
+                </div>
+                <h4 class="mt-2.5 font-serif text-2xl font-semibold">
+                  5. Closing Toast &amp; Curated Networking
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed opacity-75">
+                  A celebratory evening finale with curated hospitality and executive networking to carry new ideas forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXECUTIVE REGISTRATION FOOTER -->
+      <footer class="border-t border-softViolet/20 bg-gradient-to-b from-deepIndigo/35 to-midnight/60 px-6 sm:px-12 py-14 sm:py-16">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="mb-4 flex justify-center">
+            <div class="inline-flex items-center justify-center rounded-xl bg-lavender px-3.5 py-1.5">
+              <svg class="h-6 w-auto" viewBox="0 0 88 32" fill="none">
+                <defs>
+                  <linearGradient id="footerDartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4F39FF" />
+                    <stop offset="100%" stop-color="#815BF1" />
+                  </linearGradient>
+                </defs>
+                <text x="2" y="25" fill="#050629" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="25" letter-spacing="-0.8">abs</text>
+                <path d="M56 9.5 C64 6.5, 73 4, 82 2 C79.5 8, 76.5 14, 73.5 19.5 C70.5 15.2, 65 11.8, 56 9.5 Z" fill="url(#footerDartGrad)" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-serif text-3xl sm:text-4xl font-semibold">
+            Join Us at the ABS Client Spotlight
+          </h3>
+          <p class="mx-auto mt-3 max-w-lg text-sm opacity-80">
+            Reserve your seat directly via our official Luma registration portal or save the executive forum to your Outlook calendar.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <a
+              href="https://luma.com/7ta1l5vy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-brand w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em]"
+            >
+              <span>Register on Luma</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+
+            <button
+              id="outlookBtn"
+              type="button"
+              class="theme-card-surface w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] hover:border-electricIndigo transition-all shadow-sm"
+            >
+              <svg class="h-4 w-4 text-softViolet" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Add to Outlook Calendar</span>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FLOATING QUICK-ACTION BAR (VISIBLE ONLY IN STATE 3 'opened')          -->
+  <!-- ===================================================================== -->
+  <div
+    id="floatingActionBar"
+    style="display: none; visibility: hidden;"
+    class="floating-bar-surface fixed bottom-4 left-1/2 z-30 -translate-x-1/2 items-center gap-2 sm:gap-2.5 rounded-full border px-3 py-2 backdrop-blur-xl transition-colors"
+  >
+    <a
+      href="https://luma.com/7ta1l5vy"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cta-brand rounded-full px-4 sm:px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap"
+    >
+      Register on Luma
+    </a>
+
+    <button
+      id="jumpToastBtn"
+      type="button"
+      class="inline-flex items-center gap-1.5 rounded-full border border-softViolet/35 bg-deepIndigo/60 px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-lavender hover:border-electricIndigo transition-all whitespace-nowrap"
+    >
+      <span>&#127870; Champagne Toast</span>
+    </button>
+
+    <button
+      id="replayEnvelopeBtn"
+      type="button"
+      class="inline-flex items-center gap-1.5 rounded-full border border-softViolet/30 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.14em] opacity-85 hover:opacity-100 hover:border-electricIndigo transition-all whitespace-nowrap"
+    >
+      <span>Replay Envelope</span>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- CHAMPAGNE CELEBRATION POP-UP CARD (ON CORK POP)                       -->
+  <!-- ===================================================================== -->
+  <div
+    id="champagneToastModal"
+    role="dialog"
+    aria-modal="true"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-midnight/60 p-4 backdrop-blur-md"
+  >
+    <div class="modal-panel relative w-full max-w-md rounded-3xl bg-gradient-to-b from-deepIndigo to-midnight text-lavender p-7 sm:p-9 text-center shadow-[0_32px_90px_rgba(0,0,0,0.65),0_0_0_1px_rgba(230,208,156,0.45)]">
+      <button
+        id="closeToastModalBtn"
+        type="button"
+        aria-label="Close toast card"
+        class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full border border-lavender/20 bg-midnight/50 text-lavender/75 hover:text-white transition-colors"
+      >
+        &#10005;
+      </button>
+
+      <div class="mx-auto mb-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-champagneLight to-champagne text-midnight text-2xl shadow-lg">
+        &#127870;
+      </div>
+
+      <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-champagneLight">
+        Cheers to Innovation
+      </p>
+      <h3 class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-white">
+        A Toast to Our Partners
+      </h3>
+      <p class="mt-3 text-sm leading-relaxed text-lavender/80">
+        Thank you for being part of the <strong class="text-white">ABS Client Spotlight</strong>. Raise a glass to bold vision, seamless collaboration, and the milestones ahead.
+      </p>
+
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="https://luma.com/7ta1l5vy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-brand w-full sm:w-auto rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em]"
+        >
+          Register on Luma
+        </a>
+        <button
+          id="continueToastBtn"
+          type="button"
+          class="w-full sm:w-auto rounded-full border border-lavender/25 px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-lavender hover:border-white transition-colors"
+        >
+          Explore Agenda
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SPRING GLASSMORPHIC POP-UP MODAL FOR FORUM HIGHLIGHTS                 -->
+  <!-- ===================================================================== -->
+  <div
+    id="highlightModal"
+    role="dialog"
+    aria-modal="true"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-midnight/65 p-4 backdrop-blur-md"
+  >
+    <div class="highlight-modal-surface modal-panel relative w-full max-w-lg rounded-3xl p-7 sm:p-9">
+      <button
+        id="closeModalBtn"
+        type="button"
+        aria-label="Close modal"
+        class="theme-card-surface absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full border opacity-80 hover:opacity-100 hover:border-electricIndigo transition-colors"
+      >
+        &#10005;
+      </button>
+
+      <span id="modalTag" class="text-[10px] font-bold uppercase tracking-[0.26em] text-softViolet">
+        01 / Strategic Vision
+      </span>
+      <h3 id="modalTitle" class="mt-2 font-serif text-3xl sm:text-4xl font-semibold">
+        01 / Strategic Vision
+      </h3>
+      <div class="my-4 h-[1.5px] w-14 bg-electricIndigo"></div>
+      <p id="modalDescription" class="text-sm sm:text-base leading-relaxed opacity-80">
+        Details loading...
+      </p>
+
+      <div class="highlight-modal-inner mt-6 rounded-2xl border p-5">
+        <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-softViolet">
+          Session Highlights
+        </p>
+        <ul id="modalBullets" class="mt-3 space-y-2.5 text-xs sm:text-sm opacity-90"></ul>
+      </div>
+
+      <div class="mt-7 flex items-center justify-end gap-3">
+        <button
+          type="button"
+          onclick="closeHighlightModal()"
+          class="rounded-full border border-softViolet/30 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] opacity-80 hover:opacity-100 transition-colors"
+        >
+          Close
+        </button>
+        <a
+          href="https://luma.com/7ta1l5vy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-brand rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.15em]"
+        >
+          Register on Luma
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div
+    id="toastBanner"
+    class="pointer-events-none fixed top-6 left-1/2 z-50 -translate-x-1/2 -translate-y-6 opacity-0 transition-all duration-300 rounded-full border border-electricIndigo/30 bg-white/95 px-6 py-3 text-xs font-semibold tracking-wider text-deepIndigo shadow-xl backdrop-blur-md"
+  >
+    Outlook Calendar Invite (.ics) Downloaded
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. AMBIENT SOFT VIOLET & CHAMPAGNE SPARKLE PARTICLES ON HTML5 CANVAS
+    // =========================================================================
+    (function initAmbientSparkles() {
+      const canvas = document.getElementById('ambientDustCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      const particles = Array.from({ length: 38 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2 + 0.7,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: -Math.random() * 0.3 - 0.1,
+        alpha: Math.random() * 0.45 + 0.15,
+        violet: Math.random() > 0.35
+      }));
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.y < -10) {
+            p.y = height + 10;
+            p.x = Math.random() * width;
+          }
+          if (p.x < -10) p.x = width + 10;
+          if (p.x > width + 10) p.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.violet
+            ? `rgba(129, 91, 241, ${p.alpha})`
+            : `rgba(197, 160, 89, ${p.alpha})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+
+    // =========================================================================
+    // 2. SYNTHESIZED VINYL CRACKLE + WARM CELEBRATORY LOUNGE SCORE (WEB AUDIO)
+    // =========================================================================
+    class VinylAudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.masterGain = null;
+        this.isPlaying = false;
+        this.intervalId = null;
+        this.chords = [
+          [130.81, 196.00, 246.94, 293.66, 329.63], // Cmaj9
+          [110.00, 164.81, 220.00, 261.63, 329.63], // Am9
+          [87.31,  174.61, 220.00, 261.63, 329.63], // Fmaj9
+          [98.00,  146.83, 220.00, 246.94, 293.66]  // G6/9
+        ];
+        this.chordIndex = 0;
+      }
+
+      ensureContext() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
+          this.ctx = new AudioContext();
+          this.masterGain = this.ctx.createGain();
+          this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+
+          const filter = this.ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(920, this.ctx.currentTime);
+
+          this.masterGain.connect(filter);
+          filter.connect(this.ctx.destination);
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      playWaxCrackSound() {
+        this.ensureContext();
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+        const bufferSize = this.ctx.sampleRate * 0.16;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (this.ctx.sampleRate * 0.03));
+        }
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(1400, now);
+
+        const crackGain = this.ctx.createGain();
+        crackGain.gain.setValueAtTime(0.45, now);
+        crackGain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+
+        noise.connect(filter);
+        filter.connect(crackGain);
+        crackGain.connect(this.ctx.destination);
+        noise.start(now);
+      }
+
+      playBottleShakeSound() {
+        this.ensureContext();
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+        const bufferSize = this.ctx.sampleRate * 0.12;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.sin((i / bufferSize) * Math.PI);
+        }
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(650 + Math.random() * 350, now);
+
+        const gain = this.ctx.createGain();
+        gain.gain.setValueAtTime(0.22, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+        noise.start(now);
+      }
+
+      playCorkPopAndFizz() {
+        this.ensureContext();
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+
+        const osc = this.ctx.createOscillator();
+        const popGain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(190, now);
+        osc.frequency.exponentialRampToValueAtTime(760, now + 0.055);
+        osc.frequency.exponentialRampToValueAtTime(110, now + 0.14);
+
+        popGain.gain.setValueAtTime(0.65, now);
+        popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+        osc.connect(popGain);
+        popGain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.16);
+
+        const fizzLen = this.ctx.sampleRate * 1.6;
+        const buffer = this.ctx.createBuffer(1, fizzLen, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < fizzLen; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (this.ctx.sampleRate * 0.55));
+        }
+        const fizzSrc = this.ctx.createBufferSource();
+        fizzSrc.buffer = buffer;
+
+        const hp = this.ctx.createBiquadFilter();
+        hp.type = 'highpass';
+        hp.frequency.setValueAtTime(2400, now + 0.04);
+
+        const fizzGain = this.ctx.createGain();
+        fizzGain.gain.setValueAtTime(0.001, now);
+        fizzGain.gain.linearRampToValueAtTime(0.32, now + 0.08);
+        fizzGain.gain.exponentialRampToValueAtTime(0.001, now + 1.6);
+
+        fizzSrc.connect(hp);
+        hp.connect(fizzGain);
+        fizzGain.connect(this.ctx.destination);
+        fizzSrc.start(now + 0.04);
+
+        this.playHarmonicChime();
+      }
+
+      startVinylMusic() {
+        this.ensureContext();
+        if (!this.ctx || this.isPlaying) return;
+        this.isPlaying = true;
+
+        const now = this.ctx.currentTime;
+        this.masterGain.gain.cancelScheduledValues(now);
+        this.masterGain.gain.setValueAtTime(0.0001, now);
+        this.masterGain.gain.exponentialRampToValueAtTime(0.15, now + 1.1);
+
+        this.playNeedleDropCrackle();
+        this.playHarmonicChime();
+        this.playChordPad();
+        this.intervalId = setInterval(() => this.playChordPad(), 4200);
+      }
+
+      stopVinylMusic() {
+        if (!this.ctx || !this.isPlaying) return;
+        this.isPlaying = false;
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+
+        const now = this.ctx.currentTime;
+        this.masterGain.gain.cancelScheduledValues(now);
+        this.masterGain.gain.setTargetAtTime(0.0001, now, 0.22);
+      }
+
+      playNeedleDropCrackle() {
+        if (!this.ctx) return;
+        const bufferSize = this.ctx.sampleRate * 0.6;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() > 0.985 ? (Math.random() * 2 - 1) * 0.35 : (Math.random() * 2 - 1) * 0.015;
+        }
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        const crackleGain = this.ctx.createGain();
+        crackleGain.gain.setValueAtTime(0.28, this.ctx.currentTime);
+        crackleGain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.6);
+
+        noise.connect(crackleGain);
+        crackleGain.connect(this.masterGain);
+        noise.start();
+      }
+
+      playChordPad() {
+        if (!this.ctx || !this.isPlaying) return;
+        const now = this.ctx.currentTime;
+        const notes = this.chords[this.chordIndex % this.chords.length];
+        this.chordIndex++;
+
+        notes.forEach((freq) => {
+          const osc = this.ctx.createOscillator();
+          const noteGain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now);
+
+          noteGain.gain.setValueAtTime(0.0001, now);
+          noteGain.gain.linearRampToValueAtTime(0.09 / notes.length, now + 1.0);
+          noteGain.gain.exponentialRampToValueAtTime(0.0001, now + 4.3);
+
+          osc.connect(noteGain);
+          noteGain.connect(this.masterGain);
+          osc.start(now);
+          osc.stop(now + 4.4);
+        });
+      }
+
+      playHarmonicChime() {
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+        const notes = [523.25, 659.25, 783.99, 987.77, 1174.66];
+        notes.forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + i * 0.1);
+
+          gain.gain.setValueAtTime(0.0001, now + i * 0.1);
+          gain.gain.linearRampToValueAtTime(0.055, now + i * 0.1 + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.1 + 1.4);
+
+          osc.connect(gain);
+          gain.connect(this.masterGain);
+          osc.start(now + i * 0.1);
+          osc.stop(now + i * 0.1 + 1.5);
+        });
+      }
+    }
+
+    const vinylAudio = new VinylAudioEngine();
+
+    // =========================================================================
+    // 3. COMPACT CUTE CHIBI ABS CONCIERGE HELPER (DOCKED BOTTOM-RIGHT)
+    // =========================================================================
+    const guideWrapper = document.getElementById('guideCharacterWrapper');
+    const conciergeBubble = document.getElementById('conciergeBubble');
+    const conciergeText = document.getElementById('conciergeText');
+    const minimizeBubbleBtn = document.getElementById('minimizeBubbleBtn');
+    let currentStageKey = 'closed';
+    let tipIndex = 0;
+    let isBubbleMinimized = false;
+
+    const conciergeTips = {
+      closed: [
+        'Tap the <strong class="text-softViolet">abs</strong> wax seal to break &amp; unfold!',
+        'Click the seal to crack it open &amp; reveal your invite!'
+      ],
+      opened: [
+        'Shake the <strong class="text-softViolet">ABS Cuvée</strong> bottle to pop the cork!',
+        'Or drop the vinyl tonearm pin below for lounge music!'
+      ],
+      champagnePopped: [
+        'Cheers! Now drop the vinyl pin below to spin lounge music.',
+        'Tap <strong class="text-softViolet">Register on Luma</strong> to reserve your seat!'
+      ],
+      vinylPlaying: [
+        'Spinning at 33&#8531; RPM! Enjoy the lounge score below.',
+        'Tap <strong class="text-softViolet">Register on Luma</strong> to reserve your seat!'
+      ]
+    };
+
+    function setConciergeStage(stageKey) {
+      currentStageKey = stageKey;
+      tipIndex = 0;
+      conciergeText.innerHTML = conciergeTips[stageKey][0];
+    }
+
+    minimizeBubbleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isBubbleMinimized = true;
+      conciergeBubble.classList.add('hidden');
+    });
+
+    (function initDraggableConcierge() {
+      let isDragging = false;
+      let hasMoved = false;
+      let startX = 0;
+      let startY = 0;
+      let initialLeft = 0;
+      let initialTop = 0;
+
+      guideWrapper.addEventListener('pointerdown', (e) => {
+        if (e.target === minimizeBubbleBtn) return;
+        isDragging = true;
+        hasMoved = false;
+        guideWrapper.classList.add('is-dragging');
+        const rect = guideWrapper.getBoundingClientRect();
+        guideWrapper.style.left = rect.left + 'px';
+        guideWrapper.style.top = rect.top + 'px';
+        guideWrapper.style.right = 'auto';
+        guideWrapper.style.bottom = 'auto';
+        startX = e.clientX;
+        startY = e.clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+        guideWrapper.setPointerCapture(e.pointerId);
+      });
+
+      guideWrapper.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (Math.abs(dx) > 4 || Math.abs(dy) > 4) hasMoved = true;
+
+        const rect = guideWrapper.getBoundingClientRect();
+        const maxLeft = window.innerWidth - rect.width - 8;
+        const maxTop = window.innerHeight - rect.height - 8;
+        const nextLeft = Math.min(Math.max(8, initialLeft + dx), Math.max(8, maxLeft));
+        const nextTop = Math.min(Math.max(8, initialTop + dy), Math.max(8, maxTop));
+
+        guideWrapper.style.left = nextLeft + 'px';
+        guideWrapper.style.top = nextTop + 'px';
+      });
+
+      guideWrapper.addEventListener('pointerup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        guideWrapper.classList.remove('is-dragging');
+        if (guideWrapper.hasPointerCapture(e.pointerId)) {
+          guideWrapper.releasePointerCapture(e.pointerId);
+        }
+
+        if (!hasMoved) {
+          if (isBubbleMinimized) {
+            isBubbleMinimized = false;
+            conciergeBubble.classList.remove('hidden');
+          } else {
+            const list = conciergeTips[currentStageKey];
+            tipIndex = (tipIndex + 1) % list.length;
+            conciergeText.innerHTML = list[tipIndex];
+          }
+        }
+      });
+    })();
+
+    // =========================================================================
+    // 4. INTERACTIVE VINYL TURNTABLE & DRAGGABLE / CLICKABLE TONEARM PIN
+    // =========================================================================
+    const turntablePlatterBox = document.getElementById('turntablePlatterBox');
+    const vinylDisc = document.getElementById('vinylDisc');
+    const tonearmPin = document.getElementById('tonearmPin');
+    const toggleNeedleBtn = document.getElementById('toggleNeedleBtn');
+    const toggleNeedleBtnLabel = document.getElementById('toggleNeedleBtnLabel');
+    const vinylStatusDot = document.getElementById('vinylStatusDot');
+    const vinylStatusText = document.getElementById('vinylStatusText');
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    const eqBars = document.getElementById('eqBars');
+    const audioLabel = document.getElementById('audioLabel');
+
+    let isNeedleEngaged = false;
+
+    function setVinylState(engaged) {
+      isNeedleEngaged = engaged;
+
+      if (engaged) {
+        tonearmPin.classList.add('engaged');
+        vinylDisc.classList.add('spinning');
+        turntablePlatterBox.classList.add('turntable-playing');
+        vinylStatusDot.classList.remove('bg-softViolet/50');
+        vinylStatusDot.classList.add('bg-electricIndigo', 'animate-ping');
+        vinylStatusText.textContent = 'Spinning 33⅓ RPM';
+        toggleNeedleBtnLabel.textContent = 'Lift Pin & Pause Vinyl';
+
+        vinylAudio.startVinylMusic();
+        eqBars.classList.add('eq-playing');
+        audioLabel.textContent = 'Vinyl Playing';
+        setConciergeStage('vinylPlaying');
+      } else {
+        tonearmPin.classList.remove('engaged');
+        vinylDisc.classList.remove('spinning');
+        turntablePlatterBox.classList.remove('turntable-playing');
+        vinylStatusDot.classList.remove('bg-electricIndigo', 'animate-ping');
+        vinylStatusDot.classList.add('bg-softViolet/50');
+        vinylStatusText.textContent = 'Needle Resting';
+        toggleNeedleBtnLabel.textContent = 'Place Pin & Play Music';
+
+        vinylAudio.stopVinylMusic();
+        eqBars.classList.remove('eq-playing');
+        audioLabel.textContent = 'Vinyl Off';
+        if (envelopeState === 'opened') setConciergeStage('opened');
+      }
+    }
+
+    toggleNeedleBtn.addEventListener('click', () => setVinylState(!isNeedleEngaged));
+    audioToggleBtn.addEventListener('click', () => setVinylState(!isNeedleEngaged));
+
+    (function initTonearmDrag() {
+      let draggingArm = false;
+      let movedArm = false;
+      let currentAngle = -32;
+
+      function computeAngleFromPointer(clientX, clientY) {
+        const rect = tonearmPin.getBoundingClientRect();
+        const pivotX = rect.left + rect.width * 0.5;
+        const pivotY = rect.top + 36;
+        const dx = clientX - pivotX;
+        const dy = clientY - pivotY;
+        const rad = Math.atan2(dy, dx);
+        let deg = (rad * 180) / Math.PI - 90;
+        if (deg < -180) deg += 360;
+        return Math.max(-36, Math.min(24, deg));
+      }
+
+      tonearmPin.addEventListener('pointerdown', (e) => {
+        draggingArm = true;
+        movedArm = false;
+        tonearmPin.classList.add('dragging');
+        tonearmPin.setPointerCapture(e.pointerId);
+      });
+
+      tonearmPin.addEventListener('pointermove', (e) => {
+        if (!draggingArm) return;
+        movedArm = true;
+        currentAngle = computeAngleFromPointer(e.clientX, e.clientY);
+        tonearmPin.style.transform = `rotate(${currentAngle}deg)`;
+      });
+
+      tonearmPin.addEventListener('pointerup', (e) => {
+        if (!draggingArm) return;
+        draggingArm = false;
+        tonearmPin.classList.remove('dragging');
+        tonearmPin.style.transform = '';
+        if (tonearmPin.hasPointerCapture(e.pointerId)) {
+          tonearmPin.releasePointerCapture(e.pointerId);
+        }
+
+        if (!movedArm) {
+          setVinylState(!isNeedleEngaged);
+        } else {
+          setVinylState(currentAngle > 2);
+        }
+      });
+    })();
+
+    // =========================================================================
+    // 5. BRAND-PALETTE CELEBRATION BURST
+    // =========================================================================
+    function fireExecutiveCelebration(originY = 0.56) {
+      if (typeof confetti !== 'function') return;
+
+      const palette = ['#4F39FF', '#815BF1', '#261C71', '#C5A059', '#E6D09C'];
+
+      confetti({
+        particleCount: 55,
+        angle: 62,
+        spread: 58,
+        origin: { x: 0.16, y: originY },
+        colors: palette,
+        scalar: 0.92,
+        ticks: 240,
+        gravity: 0.85
+      });
+
+      confetti({
+        particleCount: 55,
+        angle: 118,
+        spread: 58,
+        origin: { x: 0.84, y: originY },
+        colors: palette,
+        scalar: 0.92,
+        ticks: 240,
+        gravity: 0.85
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 40,
+          spread: 85,
+          origin: { x: 0.5, y: originY - 0.08 },
+          colors: ['#815BF1', '#4F39FF', '#E6D09C'],
+          scalar: 0.82,
+          ticks: 210,
+          gravity: 0.8
+        });
+      }, 240);
+    }
+
+    // =========================================================================
+    // 5B. INTERACTIVE SHAKE-TO-POP ABS CUVÉE CHAMPAGNE BOTTLE ENGINE
+    // =========================================================================
+    const champagneStageBox = document.getElementById('champagneStageBox');
+    const champagneBottleRig = document.getElementById('champagneBottleRig');
+    const pressureFillBar = document.getElementById('pressureFillBar');
+    const pressurePctLabel = document.getElementById('pressurePctLabel');
+    const champagneStatusDot = document.getElementById('champagneStatusDot');
+    const champagneStatusText = document.getElementById('champagneStatusText');
+    const shakeBottleBtn = document.getElementById('shakeBottleBtn');
+    const resetBottleBtn = document.getElementById('resetBottleBtn');
+    const champagneToastModal = document.getElementById('champagneToastModal');
+
+    let champagnePressure = 0;
+    let isBottlePopped = false;
+    let rattleTimeout = null;
+
+    function updatePressureUI() {
+      const clamped = Math.min(100, Math.max(0, Math.round(champagnePressure)));
+      pressureFillBar.style.width = `${clamped}%`;
+      pressurePctLabel.textContent = `${clamped}%`;
+
+      if (!isBottlePopped) {
+        if (clamped >= 70) {
+          champagneStatusText.textContent = 'Ready to Burst!';
+          champagneStatusDot.className = 'h-2 w-2 rounded-full bg-electricIndigo animate-ping';
+        } else if (clamped > 0) {
+          champagneStatusText.textContent = 'Building Fizz...';
+          champagneStatusDot.className = 'h-2 w-2 rounded-full bg-softViolet';
+        } else {
+          champagneStatusText.textContent = 'Ready to Shake';
+          champagneStatusDot.className = 'h-2 w-2 rounded-full bg-champagne';
+        }
+      }
+    }
+
+    function triggerCorkPop() {
+      if (isBottlePopped) return;
+      isBottlePopped = true;
+      champagnePressure = 100;
+      updatePressureUI();
+
+      champagneBottleRig.classList.remove('champagne-rattle');
+      champagneStageBox.classList.add('bottle-popped');
+      champagneStatusText.textContent = 'Popped & Celebrated!';
+      champagneStatusDot.className = 'h-2 w-2 rounded-full bg-champagneLight';
+
+      shakeBottleBtn.classList.add('hidden');
+      resetBottleBtn.classList.remove('hidden');
+
+      vinylAudio.playCorkPopAndFizz();
+      setConciergeStage('champagnePopped');
+
+      if (typeof confetti === 'function') {
+        const rect = champagneStageBox.getBoundingClientRect();
+        const originX = (rect.left + rect.width * 0.5) / window.innerWidth;
+        const originY = Math.max(0.15, (rect.top + 30) / window.innerHeight);
+
+        confetti({
+          particleCount: 75,
+          angle: 90,
+          spread: 68,
+          startVelocity: 42,
+          origin: { x: originX, y: originY },
+          colors: ['#F3E5AB', '#C5A059', '#815BF1', '#4F39FF', '#FFFFFF'],
+          scalar: 0.95,
+          ticks: 260,
+          gravity: 0.85
+        });
+      }
+
+      setTimeout(() => {
+        champagneToastModal.classList.add('open');
+      }, 650);
+    }
+
+    function addShakeImpulse(amount = 22) {
+      if (isBottlePopped) return;
+      champagnePressure = Math.min(100, champagnePressure + amount);
+      updatePressureUI();
+      vinylAudio.playBottleShakeSound();
+
+      champagneBottleRig.classList.add('champagne-rattle');
+      clearTimeout(rattleTimeout);
+      rattleTimeout = setTimeout(() => {
+        champagneBottleRig.classList.remove('champagne-rattle');
+      }, 320);
+
+      if (champagnePressure >= 100) {
+        triggerCorkPop();
+      }
+    }
+
+    setInterval(() => {
+      if (!isBottlePopped && champagnePressure > 0) {
+        champagnePressure = Math.max(0, champagnePressure - 2.5);
+        updatePressureUI();
+      }
+    }, 450);
+
+    shakeBottleBtn.addEventListener('click', () => addShakeImpulse(26));
+    champagneBottleRig.addEventListener('click', () => addShakeImpulse(24));
+
+    (function initBottleDragShake() {
+      let dragging = false;
+      let lastX = 0;
+      let lastDir = 0;
+
+      champagneBottleRig.addEventListener('pointerdown', (e) => {
+        if (isBottlePopped) return;
+        dragging = true;
+        lastX = e.clientX;
+        lastDir = 0;
+        champagneBottleRig.setPointerCapture(e.pointerId);
+      });
+
+      champagneBottleRig.addEventListener('pointermove', (e) => {
+        if (!dragging || isBottlePopped) return;
+        const dx = e.clientX - lastX;
+        const tilt = Math.max(-18, Math.min(18, dx * 0.45));
+        champagneBottleRig.style.transform = `rotate(${tilt}deg) translateY(${-Math.abs(tilt) * 0.25}px)`;
+
+        if (Math.abs(dx) > 10) {
+          const dir = dx > 0 ? 1 : -1;
+          if (dir !== lastDir) {
+            lastDir = dir;
+            addShakeImpulse(14);
+          }
+          lastX = e.clientX;
+        }
+      });
+
+      champagneBottleRig.addEventListener('pointerup', (e) => {
+        if (!dragging) return;
+        dragging = false;
+        champagneBottleRig.style.transform = '';
+        if (champagneBottleRig.hasPointerCapture(e.pointerId)) {
+          champagneBottleRig.releasePointerCapture(e.pointerId);
+        }
+      });
+    })();
+
+    function resetChampagneBottle() {
+      isBottlePopped = false;
+      champagnePressure = 0;
+      champagneStageBox.classList.remove('bottle-popped');
+      shakeBottleBtn.classList.remove('hidden');
+      resetBottleBtn.classList.add('hidden');
+      updatePressureUI();
+    }
+
+    resetBottleBtn.addEventListener('click', resetChampagneBottle);
+
+    document.getElementById('closeToastModalBtn').addEventListener('click', () => {
+      champagneToastModal.classList.remove('open');
+    });
+    document.getElementById('continueToastBtn').addEventListener('click', () => {
+      champagneToastModal.classList.remove('open');
+      document.getElementById('event-flow').scrollIntoView({ behavior: 'smooth' });
+    });
+    champagneToastModal.addEventListener('click', (e) => {
+      if (e.target === champagneToastModal) champagneToastModal.classList.remove('open');
+    });
+
+    // =========================================================================
+    // 5C. DARK & LIGHT MODE TOGGLE CONTROLLER
+    // =========================================================================
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+    const topStagePill = document.getElementById('topStagePill');
+    const topAbsWordmark = document.getElementById('topAbsWordmark');
+    const topPillDivider = document.getElementById('topPillDivider');
+    const topPillLabel = document.getElementById('topPillLabel');
+    let isLightMode = false;
+
+    function applyTheme(light) {
+      isLightMode = light;
+      document.body.classList.toggle('light-mode', light);
+
+      if (light) {
+        themeIcon.innerHTML = '&#9790;';
+        themeLabel.textContent = 'Dark Mode';
+        themeToggleBtn.className =
+          'inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-deepIndigo backdrop-blur-md border border-deepIndigo/15 hover:border-electricIndigo transition-all shadow-md';
+        audioToggleBtn.className =
+          'inline-flex items-center gap-2.5 rounded-full bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-deepIndigo backdrop-blur-md border border-deepIndigo/15 hover:border-electricIndigo transition-all shadow-md';
+
+        topStagePill.className =
+          'inline-flex items-center gap-3 rounded-full border border-deepIndigo/15 bg-white/90 px-5 py-2 backdrop-blur-md shadow-sm transition-colors';
+        topAbsWordmark.setAttribute('fill', '#050629');
+        topPillDivider.className = 'h-3.5 w-[1px] bg-deepIndigo/20';
+        topPillLabel.className = 'text-[10px] font-bold uppercase tracking-[0.26em] text-deepIndigo';
+
+        openEnvelopeBtn.className =
+          'group inline-flex items-center gap-3 rounded-full border border-deepIndigo/20 bg-white/90 px-7 py-3 text-xs font-bold tracking-[0.2em] uppercase text-deepIndigo backdrop-blur-md hover:border-electricIndigo hover:bg-electricIndigo hover:text-white transition-all shadow-md';
+      } else {
+        themeIcon.innerHTML = '&#9728;';
+        themeLabel.textContent = 'Light Mode';
+        themeToggleBtn.className =
+          'inline-flex items-center gap-2 rounded-full bg-deepIndigo/85 px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-lavender backdrop-blur-md border border-softViolet/35 hover:border-electricIndigo transition-all shadow-lg';
+        audioToggleBtn.className =
+          'inline-flex items-center gap-2.5 rounded-full bg-deepIndigo/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-lavender backdrop-blur-md border border-softViolet/35 hover:border-electricIndigo transition-all shadow-lg';
+
+        topStagePill.className =
+          'inline-flex items-center gap-3 rounded-full border border-softViolet/35 bg-deepIndigo/75 px-5 py-2 backdrop-blur-md shadow-lg transition-colors';
+        topAbsWordmark.setAttribute('fill', '#F2EFFC');
+        topPillDivider.className = 'h-3.5 w-[1px] bg-lavender/25';
+        topPillLabel.className = 'text-[10px] font-bold uppercase tracking-[0.26em] text-lavender';
+
+        openEnvelopeBtn.className =
+          'group inline-flex items-center gap-3 rounded-full border border-softViolet/45 bg-deepIndigo/85 px-7 py-3 text-xs font-bold tracking-[0.2em] uppercase text-lavender backdrop-blur-md hover:border-electricIndigo hover:bg-electricIndigo hover:text-white transition-all shadow-lg';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => applyTheme(!isLightMode));
+
+    // =========================================================================
+    // 6. STRICT 3-STATE MACHINE ('closed' -> 'opening' -> 'opened')
+    // =========================================================================
+    const envelopeStage = document.getElementById('envelopeStage');
+    const envelopeFloatParent = document.getElementById('envelopeFloatParent');
+    const envelopeCard = document.getElementById('envelopeCard');
+    const waxSealContainer = document.getElementById('waxSealContainer');
+    const openEnvelopeBtn = document.getElementById('openEnvelopeBtn');
+    const invitationStage = document.getElementById('invitationStage');
+    const floatingActionBar = document.getElementById('floatingActionBar');
+
+    let envelopeState = 'closed'; // 'closed' | 'opening' | 'opened'
+
+    function enforceInitialClosedState() {
+      envelopeState = 'closed';
+      document.body.classList.add('state-closed');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // Ensure Envelope Stage is strictly visible
+      envelopeStage.style.display = 'flex';
+      envelopeStage.style.visibility = 'visible';
+      envelopeStage.style.opacity = '1';
+      envelopeStage.style.transform = 'translate3d(0, 0, 0) scale(1)';
+      envelopeStage.style.pointerEvents = 'auto';
+
+      // Ensure Main Invitation Stage & Floating Bar are strictly hidden
+      invitationStage.style.display = 'none';
+      invitationStage.style.visibility = 'hidden';
+      invitationStage.setAttribute('aria-hidden', 'true');
+      invitationStage.classList.add('opacity-0');
+      invitationStage.classList.remove('stage-active');
+
+      floatingActionBar.style.display = 'none';
+      floatingActionBar.style.visibility = 'hidden';
+      floatingActionBar.classList.remove('flex');
+
+      setConciergeStage('closed');
+    }
+
+    // Run immediately on load to guarantee zero premature main content
+    enforceInitialClosedState();
+
+    function unsealEnvelope() {
+      if (envelopeState !== 'closed') return;
+      envelopeState = 'opening';
+
+      // Step 1 (0.0s): Crack & split the two-piece wax seal + play crisp wax snap sound
+      vinylAudio.playWaxCrackSound();
+      waxSealContainer.classList.add('seal-cracked');
+
+      // Step 2 (0.2s): Stop float bobbing, swing left triangular flap open & slide card + vinyl out
+      setTimeout(() => {
+        envelopeFloatParent.classList.add('envelope-opened-parent');
+        envelopeCard.classList.add('envelope-opened');
+      }, 200);
+
+      // Step 3 (0.55s): Fire celebratory brand-palette confetti burst
+      setTimeout(() => {
+        fireExecutiveCelebration(0.52);
+      }, 550);
+
+      // Step 4 (1.65s): Fade out envelope stage and transition cleanly into State 3 ('opened')
+      setTimeout(() => {
+        envelopeStage.style.opacity = '0';
+        envelopeStage.style.transform = 'translate3d(0, 26px, 0) scale(0.97)';
+        envelopeStage.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+          envelopeState = 'opened';
+          document.body.classList.remove('state-closed');
+
+          envelopeStage.style.display = 'none';
+          envelopeStage.style.visibility = 'hidden';
+
+          invitationStage.style.display = 'block';
+          invitationStage.style.visibility = 'visible';
+          invitationStage.setAttribute('aria-hidden', 'false');
+
+          floatingActionBar.style.display = 'flex';
+          floatingActionBar.style.visibility = 'visible';
+
+          window.scrollTo({ top: 0, behavior: 'instant' });
+
+          requestAnimationFrame(() => {
+            invitationStage.classList.remove('opacity-0');
+            invitationStage.classList.add('stage-active');
+            setConciergeStage('opened');
+            updateAgendaSpotlight();
+          });
+        }, 550);
+      }, 1650);
+    }
+
+    waxSealContainer.addEventListener('click', (e) => {
+      e.stopPropagation();
+      unsealEnvelope();
+    });
+    envelopeCard.addEventListener('click', unsealEnvelope);
+    openEnvelopeBtn.addEventListener('click', unsealEnvelope);
+    envelopeCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        unsealEnvelope();
+      }
+    });
+
+    // Replay Envelope Button: Clean Reset back to State 1 ('closed')
+    document.getElementById('replayEnvelopeBtn').addEventListener('click', () => {
+      setVinylState(false);
+      resetChampagneBottle();
+
+      invitationStage.classList.add('opacity-0');
+      invitationStage.classList.remove('stage-active');
+
+      setTimeout(() => {
+        envelopeCard.classList.remove('envelope-opened');
+        envelopeFloatParent.classList.remove('envelope-opened-parent');
+        waxSealContainer.classList.remove('seal-cracked');
+        enforceInitialClosedState();
+      }, 420);
+    });
+
+    document.getElementById('jumpToastBtn').addEventListener('click', () => {
+      const toastSection = document.getElementById('champagne-toast');
+      if (toastSection) {
+        toastSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      if (!isBottlePopped) {
+        addShakeImpulse(34);
+      } else {
+        champagneToastModal.classList.add('open');
+      }
+    });
+
+    // =========================================================================
+    // 7. LIVE TICKING COUNTDOWN TIMER WITH DIGIT-FLIP ANIMATION
+    // =========================================================================
+    const targetDate = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000 + 8 * 60 * 60 * 1000 + 45 * 60 * 1000);
+    const prevVals = { d: '', h: '', m: '', s: '' };
+
+    function setDigitWithFlip(elId, newVal, key) {
+      const el = document.getElementById(elId);
+      if (!el) return;
+      if (prevVals[key] !== newVal) {
+        prevVals[key] = newVal;
+        el.textContent = newVal;
+        el.classList.remove('digit-flip');
+        void el.offsetWidth;
+        el.classList.add('digit-flip');
+      }
+    }
+
+    function updateCountdown() {
+      const diff = Math.max(0, targetDate - new Date());
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      setDigitWithFlip('cdDays', String(days).padStart(2, '0'), 'd');
+      setDigitWithFlip('cdHours', String(hours).padStart(2, '0'), 'h');
+      setDigitWithFlip('cdMins', String(mins).padStart(2, '0'), 'm');
+      setDigitWithFlip('cdSecs', String(secs).padStart(2, '0'), 's');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // =========================================================================
+    // 8. 3D PERSPECTIVE TILT ON HIGHLIGHT CARDS
+    // =========================================================================
+    document.querySelectorAll('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // =========================================================================
+    // 9. SPRING GLASSMORPHIC POP-UP MODAL DATA & CONTROLS
+    // =========================================================================
+    const highlightData = [
+      {
+        tag: '01 / Strategic Vision',
+        title: '01 / Strategic Vision',
+        description:
+          'An executive address from ABS leadership examining the architectural shifts redefining enterprise intelligence, resilience, and measurable business outcomes.',
+        bullets: [
+          'Next-generation platform architecture and autonomous workflows',
+          'Executive roadmap priorities for enterprise transformation',
+          'Strategic governance frameworks built for global scale'
+        ]
+      },
+      {
+        tag: '02 / Live Platform Showcase',
+        title: '02 / Live Platform Showcase',
+        description:
+          'Experience unscripted, real-time demonstrations of ABS capabilities alongside client transformation spotlights highlighting tangible operational impact.',
+        bullets: [
+          'Live end-to-end showcase of newly unveiled platform features',
+          'Real-world client spotlight stories and deployment benchmarks',
+          'Interactive Q&A with principal architects and product leads'
+        ]
+      },
+      {
+        tag: '03 / Executive Networking',
+        title: '03 / Executive Networking',
+        description:
+          'Connect with fellow C-suite leaders, industry pioneers, and the ABS executive team in an intimate, unhurried evening reception.',
+        bullets: [
+          'Curated peer-to-peer executive roundtable discussions',
+          'Direct access to ABS founders, advisors, and engineering leads',
+          'Celebratory evening hospitality and champagne toast'
+        ]
+      }
+    ];
+
+    const highlightModal = document.getElementById('highlightModal');
+    const modalTag = document.getElementById('modalTag');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalBullets = document.getElementById('modalBullets');
+
+    function openHighlightModal(index) {
+      const item = highlightData[index];
+      if (!item) return;
+
+      modalTag.textContent = item.tag;
+      modalTitle.textContent = item.title;
+      modalDescription.textContent = item.description;
+      modalBullets.innerHTML = item.bullets
+        .map(
+          (b) => `
+          <li class="flex items-start gap-2.5">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-electricIndigo"></span>
+            <span>${b}</span>
+          </li>`
+        )
+        .join('');
+
+      highlightModal.classList.add('open');
+    }
+
+    function closeHighlightModal() {
+      highlightModal.classList.remove('open');
+    }
+
+    document.getElementById('closeModalBtn').addEventListener('click', closeHighlightModal);
+    highlightModal.addEventListener('click', (e) => {
+      if (e.target === highlightModal) closeHighlightModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeHighlightModal();
+    });
+
+    // =========================================================================
+    // 10. AUTO-ILLUMINATING 5-STAGE SPOTLIGHT AGENDA TIMELINE
+    // =========================================================================
+    const timelineContainer = document.getElementById('timelineContainer');
+    const timelineProgress = document.getElementById('timelineProgress');
+    const agendaItems = document.querySelectorAll('.agenda-item');
+
+    function focusMilestone(el) {
+      agendaItems.forEach((item) => item.classList.remove('in-spotlight'));
+      el.classList.add('in-spotlight', 'revealed');
+    }
+
+    function updateAgendaSpotlight() {
+      if (!timelineContainer || envelopeState !== 'opened') return;
+
+      const rect = timelineContainer.getBoundingClientRect();
+      const viewportCenter = window.innerHeight * 0.54;
+
+      const totalHeight = rect.height;
+      const scrolled = Math.min(Math.max(viewportCenter - rect.top, 0), totalHeight);
+      const pct = totalHeight > 0 ? (scrolled / totalHeight) * 100 : 0;
+      timelineProgress.style.height = `${pct}%`;
+
+      let closestItem = null;
+      let closestDistance = Infinity;
+
+      agendaItems.forEach((item) => {
+        const itemRect = item.getBoundingClientRect();
+        if (itemRect.top < window.innerHeight * 0.88) {
+          item.classList.add('revealed');
+        }
+        const itemCenter = itemRect.top + itemRect.height / 2;
+        const dist = Math.abs(viewportCenter - itemCenter);
+        if (dist < closestDistance) {
+          closestDistance = dist;
+          closestItem = item;
+        }
+      });
+
+      if (closestItem && closestDistance < window.innerHeight * 0.45) {
+        agendaItems.forEach((item) => item.classList.remove('in-spotlight'));
+        closestItem.classList.add('in-spotlight');
+      }
+    }
+
+    window.addEventListener('scroll', updateAgendaSpotlight, { passive: true });
+    window.addEventListener('resize', updateAgendaSpotlight, { passive: true });
+
+    // =========================================================================
+    // 11. OUTLOOK CALENDAR (.ICS) DOWNLOAD GENERATOR
+    // =========================================================================
+    const outlookBtn = document.getElementById('outlookBtn');
+    const toastBanner = document.getElementById('toastBanner');
+
+    function showToast(msg) {
+      toastBanner.textContent = msg;
+      toastBanner.classList.remove('opacity-0', '-translate-y-6');
+      toastBanner.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toastBanner.classList.add('opacity-0', '-translate-y-6');
+        toastBanner.classList.remove('opacity-100', 'translate-y-0');
+      }, 3200);
+    }
+
+    outlookBtn.addEventListener('click', () => {
+      const start = new Date(targetDate.getTime());
+      const end = new Date(targetDate.getTime() + 3 * 60 * 60 * 1000);
+
+      const formatICS = (d) =>
+        d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//ABS//Client Spotlight//EN',
+        'CALSCALE:GREGORIAN',
+        'BEGIN:VEVENT',
+        `UID:abs-client-spotlight-${Date.now()}@abs.com`,
+        `DTSTAMP:${formatICS(new Date())}`,
+        `DTSTART:${formatICS(start)}`,
+        `DTEND:${formatICS(end)}`,
+        'SUMMARY:ABS Client Spotlight — Executive Forum & Showcase',
+        'DESCRIPTION:Join us for the ABS Client Spotlight featuring strategic vision keynotes, live platform demonstrations, and executive networking. Register at https://luma.com/7ta1l5vy',
+        'URL:https://luma.com/7ta1l5vy',
+        'LOCATION:ABS Client Spotlight (Details via Luma)',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ABS-Client-Spotlight.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showToast('Outlook Calendar Invite (.ics) Downloaded');
+    });
+  </script>
+</body>
+</html>
